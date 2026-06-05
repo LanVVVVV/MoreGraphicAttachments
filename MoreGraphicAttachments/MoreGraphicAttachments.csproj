@@ -1,0 +1,108 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net481</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0.0</Version>
+    <Authors>LanFengVVV</Authors>
+    <Company>LanFengVVV </Company>
+    <Description>$(AssemblyName) Mod for Monster Black Market, using MBM.ModLoader</Description>
+    <MBM>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader</MBM>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Data\ClothColorData.json" />
+    <EmbeddedResource Include="Properties\Data\NoseTypeData.json" />
+    <EmbeddedResource Include="Properties\Data\ToothTypeData.json" />
+    <EmbeddedResource Include="Properties\SpineData\TitsModSpineDataGirl.json" />
+    <EmbeddedResource Include="Properties\SpineData\SpineDataGirl.json" />
+    <EmbeddedResource Include="Properties\SpineData\TitsModSpineDataWoman.json" />
+    <EmbeddedResource Include="Properties\SpineData\SpineDataWoman.json" />
+    <EmbeddedResource Include="Sprites\button_colorModify.png">
+		<LogicalName>button_colorModify.png</LogicalName>
+	</EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(MBM)\MBM.ModLoader\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MBM.ModLoader">
+      <HintPath>$(MBM)\MBM.ModLoader\MBM.ModLoader.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <EmbedInteropTypes></EmbedInteropTypes>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="spine-unity">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\spine-unity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

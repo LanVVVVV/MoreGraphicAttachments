@@ -1,0 +1,14 @@
+{
+  "list": [
+    {
+      "m_CharacterClass": "MBMScripts.Goblin",
+      "m_NoseTypeList": [0],
+      "m_NoseTypeChanceList": [1]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Orc",
+      "m_NoseTypeList": [0],
+      "m_NoseTypeChanceList": [1]
+    }
+  ]
+}
