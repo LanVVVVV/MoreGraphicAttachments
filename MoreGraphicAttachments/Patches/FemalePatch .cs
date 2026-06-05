@@ -2,7 +2,6 @@
 using MBMScripts;
 using MoreGraphicAttachments.ExtensionData;
 using MoreGraphicAttachments.ExtensionField;
-using UnityEngine;
 
 namespace MoreGraphicAttachments.Patches;
 

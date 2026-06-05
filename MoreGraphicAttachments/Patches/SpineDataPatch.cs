@@ -2,6 +2,8 @@
 using MBMScripts;
 using System;
 
+namespace MoreGraphicAttachments.Patches;
+
 [HarmonyPatch(typeof(SpineData), nameof(SpineData.Initialize))]
 public static class SpineDataPatch
 {

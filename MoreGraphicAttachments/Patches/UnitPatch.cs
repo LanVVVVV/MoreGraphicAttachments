@@ -3,6 +3,8 @@ using MBMScripts;
 using MoreGraphicAttachments.ExtensionSpine;
 using MoreGraphicAttachments.ExtensionSpineData;
 
+namespace MoreGraphicAttachments.Patches;
+
 [HarmonyPatch(typeof(Unit), nameof(Unit.GetPartListCollection))]
 public static class UnitPatch
 {

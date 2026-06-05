@@ -2,6 +2,8 @@
 using MBMScripts;
 using System;
 
+namespace MoreGraphicAttachments.Patches;
+
 [HarmonyPatch(typeof(PlayData), nameof(PlayData.OnEnable))]
 public static class PlayDataPatch
 {

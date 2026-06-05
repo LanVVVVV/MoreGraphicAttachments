@@ -1,4 +1,5 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Patches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
 using System.Collections.Generic;

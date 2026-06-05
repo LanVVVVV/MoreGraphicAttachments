@@ -2,6 +2,8 @@
 using MBMScripts;
 using System;
 
+namespace MoreGraphicAttachments.Patches;
+
 [HarmonyPatch(typeof(GameManager), "InitializeData")]
 public static class GameManagerPatch
 {
