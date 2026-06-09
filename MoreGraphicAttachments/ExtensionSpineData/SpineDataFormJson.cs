@@ -8,7 +8,7 @@ public class SpineDataFormJson
 {
     public string skeletonDataAssetName = null!;
 
-    public List<string> slaveClothColorPartList = null!;
+    public List<string> slaveClothesColorPartList = null!;
 }
 
 [Serializable]

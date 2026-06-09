@@ -4,44 +4,63 @@ using System.Collections.Generic;
 
 namespace MoreGraphicAttachments;
 
-internal static class ModConfig
+public static class ModConfig
 {
-    private static string[] ClothColorChanceModeLabels => [Strings.Label_Default, Strings.Label_AlwaysColored, Strings.Label_Custom];
+    private const string NameClothesColorChanceMode = "Clothes Color Chance Mode";
+    private const string NameCustomClothesColorChance = "Custom Clothes Color Chance";
 
-    internal static void ModSettingRegister()
+    private static string[] ClothesColorChanceModeLabels => [Strings.Label_Default, Strings.Label_AlwaysColored, Strings.Label_Custom];
+    public static int ClothesColorChanceModeIndex { get; set; }
+
+    public static float CustomClothesColorChance { get; set; }
+
+    public static void ModSettingRegister()
     {
-        ModSettings.RegisterDropdown(ModEntry.ModName, "Cloth Color Chance Mode", ClothColorChanceModeLabels, 0, Strings.Config_ClothColorChanceMode, "ClothColor");
-        ClothColorChanceModeIndex = ModSettings.GetDropdown(ModEntry.ModName, "Cloth Color Chance Mode");
-        ModSettings.OnChanged(ModEntry.ModName, "Cloth Color Chance Mode", v =>
-        {
-            ClothColorChanceModeIndex = (int)v;
-            ModEntry.Log($"Cloth Color Chance Mode = {ClothColorChanceModeLabels[ClothColorChanceModeIndex]}");
-        });
+        ClothesColorChanceModeRegister();
 
-        ModSettings.RegisterFloat(ModEntry.ModName, "Custom Cloth Color Chance", 0.2f, Strings.Config_CustomClothColorChance, "ClothColor", "ClothColorChance");
-        CustomClothColorChance = ModSettings.GetFloat(ModEntry.ModName, "Custom Cloth Color Chance");
-        ModSettings.OnChanged(ModEntry.ModName, "Custom Cloth Color Chance", v =>
-        {
-            if (CustomClothColorChance == (float)v) return;
-            CustomClothColorChance = (float)v;
-            ModEntry.Log($"Custom Cloth Color Chance = {CustomClothColorChance}");
-        });
+        CustomClothesColorChanceRegister();
 
-        ModSettings.SetVisibleWhen(ModEntry.ModName, "Cloth Color Chance Mode",
+        SetVisible();
+    }
+
+    private static void ClothesColorChanceModeRegister()
+    {
+        ModSettings.RegisterDropdown(ModEntry.ModName, NameClothesColorChanceMode, ClothesColorChanceModeLabels, 0, Strings.Config_ClothesColorChanceMode, "ClothesColor");
+        ClothesColorChanceModeIndex = ModSettings.GetDropdown(ModEntry.ModName, NameClothesColorChanceMode);
+        ModSettings.OnChanged(ModEntry.ModName, NameClothesColorChanceMode, v =>
+        {
+            ClothesColorChanceModeIndex = (int)v;
+            ModEntry.Log($"{NameClothesColorChanceMode} = {ClothesColorChanceModeLabels[ClothesColorChanceModeIndex]}");
+        });
+    }
+
+    private static void CustomClothesColorChanceRegister()
+    {
+        ModSettings.RegisterFloat(ModEntry.ModName, NameCustomClothesColorChance, 0.2f, Strings.Config_CustomClothesColorChance, "ClothesColor", "ClothesColorChance");
+        CustomClothesColorChance = ModSettings.GetFloat(ModEntry.ModName, NameCustomClothesColorChance);
+        ModSettings.OnChanged(ModEntry.ModName, NameCustomClothesColorChance, v =>
+        {
+            if (CustomClothesColorChance == (float)v) return;
+            CustomClothesColorChance = (float)v;
+            ModEntry.Log($"{NameCustomClothesColorChance} = {CustomClothesColorChance}");
+        });
+    }
+
+    private static void SetVisible()
+    {
+        ModSettings.SetVisibleWhen(ModEntry.ModName, NameClothesColorChanceMode,
             new Dictionary<string, string[]>
             {
-                { "2", new[] { "ClothColorChance" } }
+                { "2", new[] { "ClothesColorChance" } }
             });
     }
 
-    internal static void OnLanguageChanged()
+    public static void OnLanguageChanged()
     {
-        ModSettings.RegisterDropdown(ModEntry.ModName, "Cloth Color Chance Mode", ClothColorChanceModeLabels, ClothColorChanceModeIndex, Strings.Config_ClothColorChanceMode, "ClothColor");
-        ModSettings.SetDescription(ModEntry.ModName, "Custom Cloth Color Chance", Strings.Config_CustomClothColorChance);
+        ModSettings.RegisterDropdown(ModEntry.ModName, NameClothesColorChanceMode, ClothesColorChanceModeLabels, ClothesColorChanceModeIndex, Strings.Config_ClothesColorChanceMode, "ClothesColor");
+        ModSettings.SetDescription(ModEntry.ModName, NameCustomClothesColorChance, Strings.Config_CustomClothesColorChance);
     }
 
-    public static int ClothColorChanceModeIndex { get; set; }
 
-    public static float CustomClothColorChance { get; set; }
 }
 

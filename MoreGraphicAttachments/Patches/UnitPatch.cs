@@ -12,9 +12,9 @@ public static class UnitPatch
     {
         var extra = __result.Extra();
 
-        if (extra.ClothColorSlotNameList is not null)
+        if (extra.ClothesColorSlotNameList is not null)
             return;
 
-        extra.ClothColorSlotNameList = spineData.Extra().SlaveClothColorPartList;
+        extra.ClothesColorSlotNameList = spineData.Extra().SlaveClothesColorPartList;
     }
 }

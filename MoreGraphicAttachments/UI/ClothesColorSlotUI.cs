@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
 
-public class ClothColorSlotUI
+public class ClothesColorSlotUI
 {
     private static List<ReferenceString> LabelRsList { get; set; } = [];
 
@@ -19,11 +19,11 @@ public class ClothColorSlotUI
     {
         foreach (var labelRf in LabelRsList)
         {
-            labelRf.Value = Strings.Slot_ClothColor;
+            labelRf.Value = Strings.Slot_ClothesColor;
         }
         foreach (var labelRs in LabelRftList)
         {
-            labelRs.Value = Strings.Slot_ClothColor;
+            labelRs.Value = Strings.Slot_ClothesColor;
         }
     }
 
@@ -36,12 +36,12 @@ public class ClothColorSlotUI
         var referenceSlot = contentLeft.Find("Eye Ball Color");
 
         var clothColorSlot = Object.Instantiate(referenceSlot.gameObject, contentLeft);
-        clothColorSlot.name = "Cloth Color";
+        clothColorSlot.name = "Clothes Color";
         clothColorSlot.transform.SetSiblingIndex(referenceSlot.GetSiblingIndex() + 1);
 
         #region Label
         var labelRs = clothColorSlot.GetComponentInChildren<ReferenceString>(true);
-        labelRs.Value = Strings.Slot_ClothColor;
+        labelRs.Value = Strings.Slot_ClothesColor;
         LabelRsList.Add(labelRs);
         #endregion
 
@@ -56,22 +56,22 @@ public class ClothColorSlotUI
             }
         }
 
-        var referenceClothColor = obj.AddComponent<ReferenceClothColor>();
-        referenceClothColor.DataType = ReferenceClothColor.EDataType.Color;
-        var referenceClothColorText = obj.AddComponent<ReferenceClothColor>();
-        referenceClothColorText.DataType = ReferenceClothColor.EDataType.ColorText;
+        var referenceClothesColor = obj.AddComponent<ReferenceClothesColor>();
+        referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
+        var referenceClothesColorText = obj.AddComponent<ReferenceClothesColor>();
+        referenceClothesColorText.DataType = ReferenceClothesColor.EDataType.ColorText;
         ComponentTools.
-                SetReferenceArray(obj?.GetComponent<BinderTextMeshPro>(), [referenceClothColor!]);
-        ComponentTools.SetReferenceArray(obj?.GetComponent<BinderTextMeshProText>(), [referenceClothColorText!]);
+                SetReferenceArray(obj?.GetComponent<BinderTextMeshPro>(), [referenceClothesColor!]);
+        ComponentTools.SetReferenceArray(obj?.GetComponent<BinderTextMeshProText>(), [referenceClothesColorText!]);
         #endregion
 
-        ColorPickerPanel = AddClothColorPanel(clothColorSlot);
+        ColorPickerPanel = AddClothesColorPanel(clothColorSlot);
 
-        AddClothColorButton(clothColorSlot);
+        AddClothesColorButton(clothColorSlot);
 
         PlayDataPatch.AfterSaveDataInitialized += CloseColorPickerPanel;
     }
-    private static GameObject AddClothColorPanel(GameObject clothColorSlot)
+    private static GameObject AddClothesColorPanel(GameObject clothColorSlot)
     {
         var colorpanel = UIExtraction.Panel!.transform;
         colorpanel.SetParent(clothColorSlot.transform, false);
@@ -88,7 +88,7 @@ public class ClothColorSlotUI
         var tmp = label.GetComponentInChildren<TMPro.TextMeshProUGUI>(true);
         tmp.fontSizeMax = 24f;
         tmp.enableAutoSizing = true;
-        labelRft.Value = Strings.Slot_ClothColor;
+        labelRft.Value = Strings.Slot_ClothesColor;
         LabelRftList.Add(labelRft);
 
         var exitIcon = colorpanel.Find("Exit Button").gameObject;
@@ -96,14 +96,14 @@ public class ClothColorSlotUI
 
         // === ColorPicker ===
         var body = colorpanel.Find("Body");
-        var colorPicker = UIExtraction.ClothColorPicker!.transform;
+        var colorPicker = UIExtraction.ClothesColorPicker!.transform;
         colorPicker.SetParent(body.transform, false);
 
         colorPicker.gameObject.SetActive(true);
 
         return colorpanel.gameObject;
     }
-    private static GameObject AddClothColorButton(GameObject clothColorSlot)
+    private static GameObject AddClothesColorButton(GameObject clothColorSlot)
     {
         var colorModifyButton = UIExtraction.ColorModifyButton!;
         colorModifyButton.transform.SetParent(clothColorSlot.transform, false);

@@ -7,6 +7,6 @@ public static class LoadData
     {
         CharacterExtensionDataMap<NoseTypeData>.Init();
         CharacterExtensionDataMap<ToothTypeData>.Init();
-        CharacterExtensionDataMap<ClothColorData>.Init();
+        CharacterExtensionDataMap<ClothesColorData>.Init();
     }
 }

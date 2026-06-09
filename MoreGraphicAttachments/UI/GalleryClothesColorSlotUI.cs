@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace MoreGraphicAttachments.UI;
 
-public class GalleryClothColorSlotUI
+public class GalleryClothesColorSlotUI
 {
     private static List<ReferenceFormattingText> LabelRfyList { get; set; } = [];
 
@@ -16,7 +16,7 @@ public class GalleryClothColorSlotUI
     {
         foreach (var labelRfy in LabelRfyList)
         {
-            labelRfy.Value = Strings.Slot_ClothColor;
+            labelRfy.Value = Strings.Slot_ClothesColor;
         }
     }
 
@@ -32,7 +32,7 @@ public class GalleryClothColorSlotUI
             var referenceSlot = colorContent.GetChild(0);
 
             var clothColorSlot = Object.Instantiate(referenceSlot.gameObject, colorContent);
-            clothColorSlot.name = "ClothColor";
+            clothColorSlot.name = "ClothesColor";
             clothColorSlot.transform.SetSiblingIndex(0);
 
             #region Increase the height of the parent container
@@ -66,7 +66,7 @@ public class GalleryClothColorSlotUI
 
             #region Label
             var labelRfy = clothColorSlot.GetComponentInChildren<ReferenceFormattingText>(true);
-            labelRfy.Value = Strings.Slot_ClothColor;
+            labelRfy.Value = Strings.Slot_ClothesColor;
             LabelRfyList.Add(labelRfy);
             #endregion
 
@@ -77,13 +77,13 @@ public class GalleryClothColorSlotUI
             }
 
             var flexibleColorPicker = clothColorSlot.GetComponent<FlexibleColorPicker>();
-            clothColorSlot.AddComponent<ClothColorPickerInitialization>();
-            var interaction = clothColorSlot.AddComponent<InteractionClothColor>();
+            clothColorSlot.AddComponent<ClothesColorPickerInitialization>();
+            var interaction = clothColorSlot.AddComponent<InteractionClothesColor>();
 
             flexibleColorPicker.onColorChange.RemoveAllListeners();
-            flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothColor);
+            flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
 
-            UIExtraction.ClothColorPicker ??= clothColorSlot;
+            UIExtraction.ClothesColorPicker ??= clothColorSlot;
         }
     }
 }

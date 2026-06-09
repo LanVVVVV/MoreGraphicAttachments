@@ -1,0 +1,44 @@
+{
+  "list": [
+    {
+      "m_CharacterClass": "MBMScripts.Human",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Elf",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Dwarf",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Neko",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Inu",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Usagi",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Hitsuji",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Dragonian",
+      "m_ClothesColorStringList": [ "#C3AFA4", "RANDOM" ],
+      "m_ClothesColorStringChanceList": [ 1, 0.25 ]
+    }
+  ]
+}

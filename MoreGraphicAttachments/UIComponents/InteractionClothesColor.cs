@@ -5,7 +5,7 @@ using MBMScripts;
 
 namespace MoreGraphicAttachments.UIComponents;
 
-public class InteractionClothColor : MonoBehaviour
+public class InteractionClothesColor : MonoBehaviour
 {
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class InteractionClothColor : MonoBehaviour
         yield break;
     }
 
-    public void ChangeClothColor(Color color)
+    public void ChangeClothesColor(Color color)
     {
         if (!m_IsChangeable) return;
 
@@ -33,7 +33,7 @@ public class InteractionClothColor : MonoBehaviour
         Character? character = componentInParent.Unit as Character;
         if (character == null) return;
 
-        character.Extra().ClothColor = color;
+        character.Extra().ClothesColor = color;
     }
 
     private bool m_IsChangeable;

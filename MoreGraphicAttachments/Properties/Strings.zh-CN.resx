@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Slot_ClothColor" xml:space="preserve">
+  <data name="Slot_ClothesColor" xml:space="preserve">
     <value>衣服颜色</value>
   </data>
-  <data name="Config_ClothColorChanceMode" xml:space="preserve">
+  <data name="Config_ClothesColorChanceMode" xml:space="preserve">
     <value>选择衣服初始化颜色的模式</value>
   </data>
   <data name="Label_Default" xml:space="preserve">
@@ -132,7 +132,7 @@
   <data name="Label_Custom" xml:space="preserve">
     <value>自定义</value>
   </data>
-  <data name="Config_CustomClothColorChance" xml:space="preserve">
+  <data name="Config_CustomClothesColorChance" xml:space="preserve">
     <value>自定义彩色衣服出现的概率</value>
   </data>
 </root>

@@ -10,7 +10,7 @@ namespace MoreGraphicAttachments.ExtensionField;
 public class CharacterExtraSaveData
 {
     public int UnitId;
-    public string ClothColorHex = null!;
+    public string ClothesColorHex = null!;
 
     [JsonConstructor]
     public CharacterExtraSaveData(){ }
@@ -18,7 +18,7 @@ public class CharacterExtraSaveData
     public CharacterExtraSaveData(Character character, CharacterExtra extra)
     {
         UnitId = character.UnitId;
-        ClothColorHex = "#" + ColorUtility.ToHtmlStringRGBA(extra.m_ClothColor);
+        ClothesColorHex = "#" + ColorUtility.ToHtmlStringRGBA(extra.m_ClothesColor);
     }
 }
 

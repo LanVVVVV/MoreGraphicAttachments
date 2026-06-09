@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MoreGraphicAttachments.UIComponents;
 
-public class ReferenceClothColor : Reference
+public class ReferenceClothesColor : Reference
 {
     [SerializeField]
     private EDataType m_DataType;
@@ -39,9 +39,9 @@ public class ReferenceClothColor : Reference
     {
         TargetUnit targetUnit = base.Updater.TargetUnit;
         Character? character = (targetUnit?.Unit) as Character;
-        if (character == null) return ClothColorData.BaseColor;
+        if (character == null) return ClothesColorData.BaseColor;
 
-        return character.Extra().ClothColor;
+        return character.Extra().ClothesColor;
     }
 
     public override string GetString()
@@ -50,7 +50,7 @@ public class ReferenceClothColor : Reference
         Character? character = (targetUnit?.Unit) as Character;
         if (character == null) return string.Empty;
 
-        return SeqLocalization.Localize(GetColorText(character.Extra().ClothColor));
+        return SeqLocalization.Localize(GetColorText(character.Extra().ClothesColor));
     }
 
     public static string GetColorText(Color color)

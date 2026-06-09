@@ -63,18 +63,18 @@ namespace MoreGraphicAttachments.Properties {
         /// <summary>
         ///   查找类似 Select the clothing initialization color mode 的本地化字符串。
         /// </summary>
-        internal static string Config_ClothColorChanceMode {
+        internal static string Config_ClothesColorChanceMode {
             get {
-                return ResourceManager.GetString("Config_ClothColorChanceMode", resourceCulture);
+                return ResourceManager.GetString("Config_ClothesColorChanceMode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   查找类似 Custom chance of colored clothing appearing 的本地化字符串。
         /// </summary>
-        internal static string Config_CustomClothColorChance {
+        internal static string Config_CustomClothesColorChance {
             get {
-                return ResourceManager.GetString("Config_CustomClothColorChance", resourceCulture);
+                return ResourceManager.GetString("Config_CustomClothesColorChance", resourceCulture);
             }
         }
         
@@ -106,11 +106,11 @@ namespace MoreGraphicAttachments.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Cloth Color 的本地化字符串。
+        ///   查找类似 Clothes Color 的本地化字符串。
         /// </summary>
-        internal static string Slot_ClothColor {
+        internal static string Slot_ClothesColor {
             get {
-                return ResourceManager.GetString("Slot_ClothColor", resourceCulture);
+                return ResourceManager.GetString("Slot_ClothesColor", resourceCulture);
             }
         }
     }

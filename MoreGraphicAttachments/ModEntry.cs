@@ -27,10 +27,10 @@ public static class ModEntry
         ModSaveData.OnAfterLoad += (slot) => ExtensionFieldSaveData.Load(slot);
         PlayDataPatch.AfterSaveDataInitialized += ExtensionFieldSaveData.ApplyAll;
 
-        SeqObjectPoolManagerPatch.AfterGameInitialized += GalleryClothColorSlotUI.InjectSlot;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += GalleryClothesColorSlotUI.InjectSlot;
 
-        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.AllForClothColorSlotUI;
-        SeqObjectPoolManagerPatch.AfterGameInitialized += ClothColorSlotUI.InjectSlot;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.AllForClothesColorSlotUI;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += ClothesColorSlotUI.InjectSlot;
 
         Localization.OnLanguageChanged += OnLanguageChanged;
         Log("MoreGraphicAttachments Mod loaded!");
@@ -47,8 +47,8 @@ public static class ModEntry
         Strings.Culture = Localization.CurrentCulture;
 
         ModConfig.OnLanguageChanged();
-        GalleryClothColorSlotUI.OnLanguageChanged();
-        ClothColorSlotUI.OnLanguageChanged();
+        GalleryClothesColorSlotUI.OnLanguageChanged();
+        ClothesColorSlotUI.OnLanguageChanged();
 
         Log($"language changed: {langCode}");
     }

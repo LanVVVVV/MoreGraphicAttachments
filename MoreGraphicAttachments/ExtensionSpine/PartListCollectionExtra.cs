@@ -4,5 +4,5 @@ namespace MoreGraphicAttachments.ExtensionSpine;
 
 public class PartListCollectionExtra
 {
-    public List<string> ClothColorSlotNameList { get; set; } = null!;
+    public List<string> ClothesColorSlotNameList { get; set; } = null!;
 }

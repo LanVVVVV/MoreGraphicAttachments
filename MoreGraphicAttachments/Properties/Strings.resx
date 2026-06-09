@@ -97,10 +97,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Slot_ClothColor" xml:space="preserve">
-    <value>Cloth Color</value>
+  <data name="Slot_ClothesColor" xml:space="preserve">
+    <value>Clothes Color</value>
   </data>
-  <data name="Config_ClothColorChanceMode" xml:space="preserve">
+  <data name="Config_ClothesColorChanceMode" xml:space="preserve">
     <value>Select the clothing initialization color mode</value>
   </data>
   <data name="Label_Default" xml:space="preserve">
@@ -112,7 +112,7 @@
   <data name="Label_Custom" xml:space="preserve">
     <value>Custom</value>
   </data>
-  <data name="Config_CustomClothColorChance" xml:space="preserve">
+  <data name="Config_CustomClothesColorChance" xml:space="preserve">
     <value>Custom chance of colored clothing appearing</value>
   </data>
 </root>

@@ -12,7 +12,7 @@ public class FemalePatch
     [HarmonyPostfix]
     public static void InitializeAppearancePostfix(Female __instance)
     {
-        __instance.Extra().ClothColor = CharacterExtensionDataMap<ClothColorData>.Get(__instance).GetInitialClothColor(0);
-        //ModEntry.Log($"{__instance.GetType().Name} {"#" + ColorUtility.ToHtmlStringRGBA(__instance.Extra().ClothColor)}");
+        __instance.Extra().ClothesColor = CharacterExtensionDataMap<ClothesColorData>.Get(__instance).GetInitialClothesColor(0);
+        //ModEntry.Log($"{__instance.GetType().Name} {"#" + ColorUtility.ToHtmlStringRGBA(__instance.Extra().ClothesColor)}");
     }
 }

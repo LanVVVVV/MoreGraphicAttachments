@@ -8,25 +8,25 @@ namespace MoreGraphicAttachments.UI;
 
 public class UIExtraction
 {
-    // After GalleryClothColorSlotUI
-    public static GameObject? ClothColorPicker { get; set; }
+    // After GalleryClothesColorSlotUI
+    public static GameObject? ClothesColorPicker { get; set; }
 
     public static GameObject? ColorModifyButton { get; set; }
 
     public static GameObject? Panel { get; set; }
 
-    public static void AllForClothColorSlotUI()
+    public static void AllForClothesColorSlotUI()
     {
-        ExtractionClothColorPicker();
+        ExtractionClothesColorPicker();
         ExtractionColorModifyButton();
         ExtractionPanelWindow();
     }
 
-    private static void ExtractionClothColorPicker()
+    private static void ExtractionClothesColorPicker()
     {
-        ClothColorPicker!.SetActive(false);
-        var colorPicker = GameObject.Instantiate(ClothColorPicker!);
-        ClothColorPicker.SetActive(true);
+        ClothesColorPicker!.SetActive(false);
+        var colorPicker = GameObject.Instantiate(ClothesColorPicker!);
+        ClothesColorPicker.SetActive(true);
         colorPicker.name = "Color Picker";
         var colorPickerRT = colorPicker.GetComponent<RectTransform>();
         colorPickerRT.anchorMin = new Vector2(0, 0);
@@ -39,17 +39,17 @@ public class UIExtraction
         GameObject.Destroy(colorPickerRT.Find("Text (TMP)").gameObject);
 
         var flexibleColorPicker = colorPicker.GetComponent<FlexibleColorPicker>();
-        var interaction = colorPicker.GetComponent<InteractionClothColor>();
+        var interaction = colorPicker.GetComponent<InteractionClothesColor>();
         flexibleColorPicker.onColorChange.RemoveAllListeners();
-        flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothColor);
+        flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
 
-        UnityEngine.Object.Destroy(colorPicker.GetComponent<ClothColorPickerInitialization>());
-        var referenceClothColor = colorPicker.AddComponent<ReferenceClothColor>();
-        referenceClothColor.DataType = ReferenceClothColor.EDataType.Color;
+        UnityEngine.Object.Destroy(colorPicker.GetComponent<ClothesColorPickerInitialization>());
+        var referenceClothesColor = colorPicker.AddComponent<ReferenceClothesColor>();
+        referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
         colorPicker.AddComponent<UpdaterColorPicker>();
-        ComponentTools.SetReferenceArray(colorPicker?.GetComponent<UpdaterColorPicker>(), [referenceClothColor!]);
+        ComponentTools.SetReferenceArray(colorPicker?.GetComponent<UpdaterColorPicker>(), [referenceClothesColor!]);
 
-        ClothColorPicker = colorPicker;
+        ClothesColorPicker = colorPicker;
     }
 
     private static void ExtractionColorModifyButton()

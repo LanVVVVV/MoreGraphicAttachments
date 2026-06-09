@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MoreGraphicAttachments.UIComponents;
 
-public class ClothColorPickerInitialization : MonoBehaviour
+public class ClothesColorPickerInitialization : MonoBehaviour
 {
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class ClothColorPickerInitialization : MonoBehaviour
         {
             return;
         }
-        m_FlexibleColorPicker.color = character.Extra().ClothColor;
+        m_FlexibleColorPicker.color = character.Extra().ClothesColor;
 
         return;
     }

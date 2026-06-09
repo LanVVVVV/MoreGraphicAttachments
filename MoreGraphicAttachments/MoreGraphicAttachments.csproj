@@ -4,7 +4,7 @@
     <TargetFramework>net481</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>1.0.1.0</Version>
+    <Version>1.0.2.0</Version>
     <Authors>LanFengVVV</Authors>
     <Company>LanFengVVV </Company>
     <Description>$(AssemblyName) Mod for Monster Black Market, using MBM.ModLoader</Description>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Data\ClothColorData.json" />
+    <EmbeddedResource Include="Properties\Data\ClothesColorData.json" />
     <EmbeddedResource Include="Properties\Data\NoseTypeData.json" />
     <EmbeddedResource Include="Properties\Data\ToothTypeData.json" />
     <EmbeddedResource Include="Properties\SpineData\TitsModSpineDataGirl.json" />

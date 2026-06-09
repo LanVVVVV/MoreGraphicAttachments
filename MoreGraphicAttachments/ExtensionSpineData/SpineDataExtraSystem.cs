@@ -68,12 +68,12 @@ public static class SpineDataExtraSystem
 
             if (match == null)
             {
-                spineData.Extra().slaveClothColorPartList = new List<string>();
+                spineData.Extra().slaveClothesColorPartList = new List<string>();
                 continue;
             }
 
-            spineData.Extra().slaveClothColorPartList =
-                new List<string>(match.slaveClothColorPartList);
+            spineData.Extra().slaveClothesColorPartList =
+                new List<string>(match.slaveClothesColorPartList);
 
             num++;
         }

@@ -2,7 +2,7 @@
   "list": [
     {
       "skeletonDataAssetName": "girl_stand",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(body)_(pregnant)",
         "cloth_bodyB_(cloth)_(tits)_(pregnant)",
         "cloth_titsA_(cloth)_(tits)_(pregnant)",
@@ -12,7 +12,7 @@
     },
     {
       "skeletonDataAssetName": "girl_maid_stand",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(body)_(pregnant)",
         "cloth_bodyB_(cloth)_(tits)_(pregnant)",
         "cloth_titsA_(cloth)_(tits)_(pregnant)",
@@ -35,7 +35,7 @@
     },
     {
       "skeletonDataAssetName": "girl_rest",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(body)_(pregnant)",
         "cloth_bodyB_(cloth)_(tits)_(pregnant)",
         "cloth_titsA_(cloth)_(tits)_(pregnant)",
@@ -45,44 +45,44 @@
     },
     {
       "skeletonDataAssetName": "girl_nude_drain",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(body)_(pregnant)",
         "cloth_bodyB_(cloth)_(tits)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_birth_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyB"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_big_birth_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyB"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_birth_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyB"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_big_birth_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyB"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_dead",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_body"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_move_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(body)_(pregnant)",
         "cloth_bodyB_(cloth)_(tits)_(pregnant)",
         "cloth_titsA_(cloth)_(tits)",
@@ -92,20 +92,20 @@
     },
     {
       "skeletonDataAssetName": "girl_nude_move_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(pregnant)",
         "cloth_bodyB_(cloth)_(tits)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "girl_nude_milk",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "goblin_girl_nude_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(body)_(pregnant)",
         "s_cloth_bodyB_(cloth)_(tits)_(pregnant)",
         "s_cloth_tits_left_(cloth)_(tits)"
@@ -113,14 +113,14 @@
     },
     {
       "skeletonDataAssetName": "goblin_girl_nude_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(body)_(pregnant)",
         "s_cloth_bodyB_(cloth)_(tits)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "orc_girl_nude_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(tits)_(pregnant)",
         "s_cloth_titsA_(cloth)_(tits)_(pregnant)",
         "s_cloth_tits_left_(cloth)_(tits)",
@@ -129,13 +129,13 @@
     },
     {
       "skeletonDataAssetName": "orc_girl_nude_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(tits)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "werewolf_girl_nude_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_body_(cloth)_(tits)_(pregnant)",
         "s_cloth_body_(cloth)_(tits)_(pregnant)2",
         "s_cloth_tits_left_(cloth)_(tits)"
@@ -143,13 +143,13 @@
     },
     {
       "skeletonDataAssetName": "werewolf_girl_nude_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_body"
       ]
     },
     {
       "skeletonDataAssetName": "man_girl_nude_4",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(body)",
         "s_cloth_bodyB_(cloth)_(ttis)",
         "s_cloth_tits_(cloth)_(tits)"
@@ -157,14 +157,14 @@
     },
     {
       "skeletonDataAssetName": "bed_girl_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_body_(tits)_(pregnant)",
         "cloth_tits_(tits)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "bed_girl_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "maid_cloth_armA_(3p)",
         "maid_cloth_armB_(3p)",
         "maid_cloth_calf_left",
@@ -177,7 +177,7 @@
     },
     {
       "skeletonDataAssetName": "bed_girl_right_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "maid_cloth_armA_(3p)",
         "maid_cloth_armB_(3p)",
         "maid_cloth_calf_left",
@@ -190,25 +190,25 @@
     },
     {
       "skeletonDataAssetName": "horse_girl_nude",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "cloth_bodyA_(cloth)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "minotaur_girl_nude_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(tits)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "minotaur_girl_nude_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_body_(cloth)_(pregnant)"
       ]
     },
     {
       "skeletonDataAssetName": "salamander_girl_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_bodyA_(cloth)_(tits)",
         "s_cloth_titsA_(cloth)_(tits)",
         "s_cloth_tits_left_(cloth)_(tits)",
@@ -217,7 +217,7 @@
     },
     {
       "skeletonDataAssetName": "tentacle_girl_1",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth_arm_right",
         "s_cloth_body_(body)",
         "s_cloth_titsA_(tits)",
@@ -226,7 +226,7 @@
     },
     {
       "skeletonDataAssetName": "tentacle_girl_2",
-      "slaveClothColorPartList": [
+      "slaveClothesColorPartList": [
         "s_cloth"
       ]
     }

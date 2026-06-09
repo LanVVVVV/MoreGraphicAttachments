@@ -10,21 +10,21 @@ public class CharacterExtra
 {
     public Character m_Character;
 
-    public Color m_ClothColor = ClothColorData.BaseColor;
+    public Color m_ClothesColor = ClothesColorData.BaseColor;
 
-    public Color ClothColor
+    public Color ClothesColor
     {
         get
         {
             SeqDataBinding.Instance.RegisterFlag(m_Character);
-            return m_ClothColor;
+            return m_ClothesColor;
         }
         set
         {
-            if (!(m_ClothColor == value))
+            if (!(m_ClothesColor == value))
             {
                 SeqDataBinding.Instance.DirtyFlag(m_Character);
-                m_ClothColor = value;
+                m_ClothesColor = value;
                 Unit.RemovePartData(m_Character);
             }
         }
@@ -39,23 +39,23 @@ public class CharacterExtra
     {
         m_Character = character;
 
-        if (ColorUtility.TryParseHtmlString(data.ClothColorHex, out var col))
+        if (ColorUtility.TryParseHtmlString(data.ClothesColorHex, out var col))
         {
-            m_ClothColor = col;
+            m_ClothesColor = col;
         }
         else
         {
-            m_ClothColor = ClothColorData.BaseColor;
+            m_ClothesColor = ClothesColorData.BaseColor;
         }
     }
 
     public bool NotNeedSave()
     {
-        return ClothColorNotNeedSave();
+        return ClothesColorNotNeedSave();
     }
 
-    private bool ClothColorNotNeedSave()
+    private bool ClothesColorNotNeedSave()
     {
-        return ClothColor == ClothColorData.BaseColor;
+        return ClothesColor == ClothesColorData.BaseColor;
     }
 }

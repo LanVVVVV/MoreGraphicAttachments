@@ -5,7 +5,7 @@ namespace MoreGraphicAttachments.ExtensionSpineData;
 
 public class SpineDataExtra
 {
-    public List<string> slaveClothColorPartList = null!;
+    public List<string> slaveClothesColorPartList = null!;
 
-    public List<string> SlaveClothColorPartList => slaveClothColorPartList;
+    public List<string> SlaveClothesColorPartList => slaveClothesColorPartList;
 }

@@ -18,15 +18,15 @@ public static class UpdaterSpineCharacterPatch
             return;
 
         var extra = __instance.Female.Extra();
-        Color clothColor = extra.ClothColor;
+        Color clothColor = extra.ClothesColor;
         Color finalColor;
 
         //finalColor = ApplyBrightnessCompensation(clothColor);
-        finalColor = CalculateCompensationColor(clothColor, ClothColorData.BaseColor);
+        finalColor = CalculateCompensationColor(clothColor, ClothesColorData.BaseColor);
 
         var plc = Unit.GetPartListCollection(__instance.SpineData, __instance.Female, __instance.Male);
 
-        foreach (string slotName in plc.Extra().ClothColorSlotNameList)
+        foreach (string slotName in plc.Extra().ClothesColorSlotNameList)
         {
             Slot slot = ___m_Skeleton.FindSlot(slotName);
             if (slot != null)
@@ -38,9 +38,9 @@ public static class UpdaterSpineCharacterPatch
 
     //static public Color ApplyBrightnessCompensation(Color clothColor, float textureBrightness = 0.6f)
     //{
-    //    if (clothColor == ClothColorData.BaseColor)
+    //    if (clothColor == ClothesColorData.BaseColor)
     //    {
-    //        return ClothColorData.BaseColor;
+    //        return ClothesColorData.BaseColor;
     //    }
     //    if (textureBrightness < 0.01f)
     //        textureBrightness = 0.01f;
