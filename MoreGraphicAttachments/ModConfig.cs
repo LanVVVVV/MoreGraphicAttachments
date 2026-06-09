@@ -8,17 +8,23 @@ public static class ModConfig
 {
     private const string NameClothesColorChanceMode = "Clothes Color Chance Mode";
     private const string NameCustomClothesColorChance = "Custom Clothes Color Chance";
+    private const string NameClothesColorInherit = "Clothes Color Inherit";
+
 
     private static string[] ClothesColorChanceModeLabels => [Strings.Label_Default, Strings.Label_AlwaysColored, Strings.Label_Custom];
     public static int ClothesColorChanceModeIndex { get; set; }
 
     public static float CustomClothesColorChance { get; set; }
 
+    public static bool EnableClothesColorInherit { get; set; }
+
     public static void ModSettingRegister()
     {
         ClothesColorChanceModeRegister();
 
         CustomClothesColorChanceRegister();
+
+        ClothesColorInheritRegister();
 
         SetVisible();
     }
@@ -46,6 +52,18 @@ public static class ModConfig
         });
     }
 
+    private static void ClothesColorInheritRegister()
+    {
+        ModSettings.RegisterBool(ModEntry.ModName, NameClothesColorInherit, true, Strings.Config_ClothesColorInherit);
+        EnableClothesColorInherit = ModSettings.GetBool(ModEntry.ModName, NameClothesColorInherit);
+        ModSettings.OnChanged(ModEntry.ModName, NameClothesColorInherit, v =>
+        {
+            if (EnableClothesColorInherit == (bool)v) return;
+            EnableClothesColorInherit = (bool)v;
+            ModEntry.Log($"{NameClothesColorInherit} = {EnableClothesColorInherit}");
+        });
+    }
+
     private static void SetVisible()
     {
         ModSettings.SetVisibleWhen(ModEntry.ModName, NameClothesColorChanceMode,
@@ -59,8 +77,8 @@ public static class ModConfig
     {
         ModSettings.RegisterDropdown(ModEntry.ModName, NameClothesColorChanceMode, ClothesColorChanceModeLabels, ClothesColorChanceModeIndex, Strings.Config_ClothesColorChanceMode, "ClothesColor");
         ModSettings.SetDescription(ModEntry.ModName, NameCustomClothesColorChance, Strings.Config_CustomClothesColorChance);
+        ModSettings.SetDescription(ModEntry.ModName, NameClothesColorInherit, Strings.Config_ClothesColorInherit);
+
     }
-
-
 }
 

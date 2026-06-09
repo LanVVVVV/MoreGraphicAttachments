@@ -6,6 +6,7 @@ MoreGraphicAttachments is a mod for **Monster Black Market** —— adding addit
 
 * Initialize and modify colored clothing for characters.
 * Select mode or customize the chance of colored clothing appearing in the mod settings.
+* Controlling whether offspring inherit clothing color.
 
 ### Requirements
 

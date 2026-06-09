@@ -70,6 +70,15 @@ namespace MoreGraphicAttachments.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Does the offspring inherit the clothes color 的本地化字符串。
+        /// </summary>
+        internal static string Config_ClothesColorInherit {
+            get {
+                return ResourceManager.GetString("Config_ClothesColorInherit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Custom chance of colored clothing appearing 的本地化字符串。
         /// </summary>
         internal static string Config_CustomClothesColorChance {

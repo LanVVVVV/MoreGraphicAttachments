@@ -115,4 +115,7 @@
   <data name="Config_CustomClothesColorChance" xml:space="preserve">
     <value>Custom chance of colored clothing appearing</value>
   </data>
+  <data name="Config_ClothesColorInherit" xml:space="preserve">
+    <value>Does the offspring inherit the clothes color</value>
+  </data>
 </root>

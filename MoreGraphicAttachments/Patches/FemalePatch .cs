@@ -15,4 +15,12 @@ public class FemalePatch
         __instance.Extra().ClothesColor = CharacterExtensionDataMap<ClothesColorData>.Get(__instance).GetInitialClothesColor(0);
         //ModEntry.Log($"{__instance.GetType().Name} {"#" + ColorUtility.ToHtmlStringRGBA(__instance.Extra().ClothesColor)}");
     }
+
+    [HarmonyPatch("Initialize", [typeof(Character), typeof(Character)])]
+    [HarmonyPostfix]
+    public static void InitializePostfix(Female __instance, Character female, Character male)
+    {
+        if (!ModConfig.EnableClothesColorInherit) return;
+        __instance.Extra().ClothesColor = female.Extra().ClothesColor;
+    }
 }

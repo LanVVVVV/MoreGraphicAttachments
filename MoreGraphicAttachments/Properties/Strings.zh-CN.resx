@@ -135,4 +135,7 @@
   <data name="Config_CustomClothesColorChance" xml:space="preserve">
     <value>自定义彩色衣服出现的概率</value>
   </data>
+  <data name="Config_ClothesColorInherit" xml:space="preserve">
+    <value>子代是否继承衣服颜色</value>
+  </data>
 </root>
