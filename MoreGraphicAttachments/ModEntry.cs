@@ -18,19 +18,19 @@ public static class ModEntry
     public static void Load()
     {
         UISpriteLoad.LoadSprite();
-        GameManagerPatch.AfterDataInitialized += LoadData.Initialize;
-        SpineDataPatch.AfterSpineDataInitialized += LoadSpineData.Initialize;
 
         ModConfig.ModSettingRegister();
+
+        SeqObjectPoolManagerPatch.AfterGameInitialized += GalleryClothesColorSlotUI.InjectSlot;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.AllForClothesColorSlotUI;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += ClothesColorSlotUI.InjectSlot;
+
+        GameManagerPatch.AfterDataInitialized += LoadData.Initialize;
+        SpineDataPatch.AfterSpineDataInitialized += LoadSpineData.Initialize;
 
         ModSaveData.OnBeforeSave += (slot) => ExtensionFieldSaveData.Save(slot);
         ModSaveData.OnAfterLoad += (slot) => ExtensionFieldSaveData.Load(slot);
         PlayDataPatch.AfterSaveDataInitialized += ExtensionFieldSaveData.ApplyAll;
-
-        SeqObjectPoolManagerPatch.AfterGameInitialized += GalleryClothesColorSlotUI.InjectSlot;
-
-        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.AllForClothesColorSlotUI;
-        SeqObjectPoolManagerPatch.AfterGameInitialized += ClothesColorSlotUI.InjectSlot;
 
         Localization.OnLanguageChanged += OnLanguageChanged;
         Log("MoreGraphicAttachments Mod loaded!");

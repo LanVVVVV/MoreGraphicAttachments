@@ -4,11 +4,11 @@
     <TargetFramework>net481</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>1.1.0.0</Version>
+    <Version>1.2.0.0</Version>
     <Authors>LanFengVVV</Authors>
     <Company>LanFengVVV </Company>
     <Description>$(AssemblyName) Mod for Monster Black Market, using MBM.ModLoader</Description>
-    <MBM>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader</MBM>
+	<MBM>..\..\..\MBM.ModLoader For v2.1.2.0\Monster_Black_Market_v2.1.2.0 - MBM.ModLoader</MBM>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,7 +40,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MBM.ModLoader">
@@ -52,12 +52,16 @@
       <EmbedInteropTypes></EmbedInteropTypes>
       <Private>False</Private>
     </Reference>
+    <Reference Include="spine-csharp">
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\spine-csharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="spine-unity">
       <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\spine-unity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\Unity.TextMeshPro.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
@@ -69,7 +73,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
@@ -81,11 +85,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\MBM.ModLoader\Monster_Black_Market_v2.1.1.0DLC - MBM.ModLoader - Copy\MonsterBlackMarket_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.UIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

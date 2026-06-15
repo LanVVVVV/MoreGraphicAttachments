@@ -1,5 +1,4 @@
 ﻿using MBM.ModLoader.Core;
-using System;
 
 namespace MoreGraphicAttachments.ExtensionSpineData;
 
@@ -7,14 +6,13 @@ public static class LoadSpineData
 {
     public static bool Initialized = false;
 
-
     public static void Initialize()
     {
         if (Initialized) return;
 
         string[] jsonNames;
 
-        if (IsTitsModEnabled())
+        if (Loader.IsModLoaded("TitsMod"))
         {
             ModEntry.Log("Detected: TitsMod enabled.");
             jsonNames = ["TitsModSpineDataWoman", "TitsModSpineDataGirl"];
@@ -28,17 +26,5 @@ public static class LoadSpineData
         SpineDataExtraSystem.Init(jsonNames);
 
         Initialized = true;
-    }
-
-    public static bool IsTitsModEnabled()
-    {
-        foreach (var mod in Loader.Mods)
-        {
-            if (string.Equals(mod.FileName, "TitsMod", StringComparison.OrdinalIgnoreCase))
-            {
-                return mod.Enabled;
-            }
-        }
-        return false;
     }
 }

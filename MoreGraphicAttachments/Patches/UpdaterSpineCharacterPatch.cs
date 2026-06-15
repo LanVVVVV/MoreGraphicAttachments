@@ -12,7 +12,7 @@ namespace MoreGraphicAttachments.Patches;
 [HarmonyPatch(typeof(UpdaterSpineCharacter), "OnChangeSpine")]
 public static class UpdaterSpineCharacterPatch
 {
-    static void Postfix(UpdaterSpineCharacter __instance, Skeleton ___m_Skeleton)
+    public static void Postfix(UpdaterSpineCharacter __instance, Skeleton ___m_Skeleton)
     {
         if (__instance.Female == null)
             return;
@@ -28,11 +28,7 @@ public static class UpdaterSpineCharacterPatch
 
         foreach (string slotName in plc.Extra().ClothesColorSlotNameList)
         {
-            Slot slot = ___m_Skeleton.FindSlot(slotName);
-            if (slot != null)
-            {
-                slot.SetColor(finalColor);
-            }
+            ___m_Skeleton.FindSlot(slotName)?.SetColor(finalColor);
         }
     }
 
