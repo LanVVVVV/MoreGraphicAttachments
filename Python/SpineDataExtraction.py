@@ -1,10 +1,11 @@
 import json
 
+# INPUT = "SpineData.txt"
 INPUT = "TitsModSpineData.txt"
 OUTPUT = "output.json"
 
 EXTRACT_RULES = {
-    "slaveClothColorPartList": {
+    "slaveClothesColorPartList": {
         "source": "slaveShowPartList",
         "match": lambda slot: "cloth" in slot
         # "match": lambda slot: "cloth" in slot and "maid" not in slot

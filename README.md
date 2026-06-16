@@ -14,3 +14,7 @@ MoreGraphicAttachments is a mod for **Monster Black Market** —— adding addit
 | -------------------- | ---------- |
 | MBM.ModLoader        | ≥ 0.6.0    |
 | Monster Black Market | ≥ 2.1.2.0  |
+
+### Compatibility
+
+- ✅ **TitsMod** — added clothing color support for TitsMod V2pR9’s modified Spine data.
