@@ -124,13 +124,13 @@
     <value>选择衣服初始化颜色的模式</value>
   </data>
   <data name="Label_Default" xml:space="preserve">
-    <value>默认</value>
+    <value>来自配置文件</value>
   </data>
   <data name="Label_AlwaysColored" xml:space="preserve">
     <value>总为彩色</value>
   </data>
   <data name="Label_Custom" xml:space="preserve">
-    <value>自定义</value>
+    <value>统一自定义</value>
   </data>
   <data name="Config_CustomClothesColorChance" xml:space="preserve">
     <value>自定义彩色衣服出现的概率</value>

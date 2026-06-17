@@ -97,7 +97,7 @@ namespace MoreGraphicAttachments.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Custom 的本地化字符串。
+        ///   查找类似 Unified Custom 的本地化字符串。
         /// </summary>
         internal static string Label_Custom {
             get {
@@ -106,7 +106,7 @@ namespace MoreGraphicAttachments.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Default 的本地化字符串。
+        ///   查找类似 From Config 的本地化字符串。
         /// </summary>
         internal static string Label_Default {
             get {

@@ -104,13 +104,13 @@
     <value>Select the clothing initialization color mode</value>
   </data>
   <data name="Label_Default" xml:space="preserve">
-    <value>Default</value>
+    <value>From Config</value>
   </data>
   <data name="Label_AlwaysColored" xml:space="preserve">
     <value>Always Colored</value>
   </data>
   <data name="Label_Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>Unified Custom</value>
   </data>
   <data name="Config_CustomClothesColorChance" xml:space="preserve">
     <value>Custom chance of colored clothing appearing</value>

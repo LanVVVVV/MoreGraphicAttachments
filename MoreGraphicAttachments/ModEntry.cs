@@ -17,6 +17,8 @@ public static class ModEntry
 
     public static void Load()
     {
+        ConfigSystem.ExportAllEmbeddedFile(ModName, "json");
+
         UISpriteLoad.LoadSprite();
 
         ModConfig.ModSettingRegister();

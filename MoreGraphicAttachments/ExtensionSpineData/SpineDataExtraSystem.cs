@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace MoreGraphicAttachments.ExtensionSpineData;
 
@@ -23,9 +24,9 @@ public static class SpineDataExtraSystem
 
         foreach (var jsonName in jsonNames)
         {
-            var json = JsonTool.LoadEmbeddedJson(jsonName);
+            TextAsset? jsonAsset = ConfigSystem.LoadExternalFile(ModEntry.ModName, jsonName + ".json");
 
-            if (json == null)
+            if (jsonAsset == null)
             {
                 ModEntry.LogWarning($"[{jsonName}] No JSON found. Skipping.");
                 continue;
@@ -35,7 +36,7 @@ public static class SpineDataExtraSystem
 
             try
             {
-                wrapper = JsonConvert.DeserializeObject<SpineDataWrapper>(json.text);
+                wrapper = JsonConvert.DeserializeObject<SpineDataWrapper>(jsonAsset.text);
             }
             catch (Exception ex)
             {
