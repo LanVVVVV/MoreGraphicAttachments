@@ -10,10 +10,11 @@ MoreGraphicAttachments is a mod for **Monster Black Market** —— adding addit
 
 ### Requirements
 
-| Dependency           | Version    |
-| -------------------- | ---------- |
-| MBM.ModLoader        | ≥ 0.6.0    |
-| Monster Black Market | ≥ 2.1.2.0  |
+| Dependency           | Version    | Link |
+| -------------------- | ---------- | ---- |
+| MBM.ModLoader        | ≥ 0.6.0    |      |
+| Monster Black Market | ≥ 2.1.2.0  |      |
+| SystemExtensionLib   | ≥ 1.0.0    | [GitHub](https://github.com/LanVVVVV/SystemExtensionLib) |
 
 ### Compatibility
 

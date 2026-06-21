@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using SystemExtensionLib.Systems;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.ExtensionSpineData;
@@ -24,7 +25,7 @@ public static class SpineDataExtraSystem
 
         foreach (var jsonName in jsonNames)
         {
-            TextAsset? jsonAsset = ConfigSystem.LoadExternalFile(ModEntry.ModName, jsonName + ".json");
+            TextAsset? jsonAsset = ConfigSystem.LoadExternalConfig(ModEntry.ModName, jsonName + ".json");
 
             if (jsonAsset == null)
             {
