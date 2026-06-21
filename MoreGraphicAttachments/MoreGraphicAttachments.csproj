@@ -4,7 +4,7 @@
     <TargetFramework>net481</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>1.2.2.0</Version>
+    <Version>1.3.0.0</Version>
     <Authors>LanFengVVV</Authors>
     <Company>LanFengVVV </Company>
     <Description>$(AssemblyName) Mod for Monster Black Market, using MBM.ModLoader</Description>
@@ -18,13 +18,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Data\ClothesColorData.json" />
-    <EmbeddedResource Include="Properties\Data\NoseTypeData.json" />
-    <EmbeddedResource Include="Properties\Data\ToothTypeData.json" />
-    <EmbeddedResource Include="Properties\SpineData\TitsModSpineDataGirl.json" />
-    <EmbeddedResource Include="Properties\SpineData\SpineDataGirl.json" />
-    <EmbeddedResource Include="Properties\SpineData\TitsModSpineDataWoman.json" />
-    <EmbeddedResource Include="Properties\SpineData\SpineDataWoman.json" />
+    <EmbeddedResource Include="Properties\Configs\Data\ClothesColorData.json" />
+    <EmbeddedResource Include="Properties\Configs\Data\NoseTypeData.json" />
+    <EmbeddedResource Include="Properties\Configs\Data\ToothTypeData.json" />
+    <EmbeddedResource Include="Properties\Configs\SpineData\TitsModSpineDataGirl.json" />
+    <EmbeddedResource Include="Properties\Configs\SpineData\SpineDataGirl.json" />
+    <EmbeddedResource Include="Properties\Configs\SpineData\TitsModSpineDataWoman.json" />
+    <EmbeddedResource Include="Properties\Configs\SpineData\SpineDataWoman.json" />
     <EmbeddedResource Include="Sprites\button_colorModify.png">
 		<LogicalName>button_colorModify.png</LogicalName>
 	</EmbeddedResource>
@@ -59,6 +59,10 @@
     <Reference Include="spine-unity">
       <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\spine-unity.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="SystemExtensionLib">
+      <HintPath>..\..\SystemExtensionLib\SystemExtensionLib\bin\Debug\net481\SystemExtensionLib.dll</HintPath>
+	  <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\Unity.TextMeshPro.dll</HintPath>

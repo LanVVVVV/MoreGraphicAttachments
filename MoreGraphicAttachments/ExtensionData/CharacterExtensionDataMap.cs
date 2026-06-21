@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SystemExtensionLib.Systems;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.ExtensionData;
@@ -20,7 +21,7 @@ public static class CharacterExtensionDataMap<T> where T : ExtensionCharacterDat
         if(initialized)
             return;
 
-        TextAsset? jsonAsset = ConfigSystem.LoadExternalFile(ModEntry.ModName, typeof(T).Name + ".json");
+        TextAsset? jsonAsset = ConfigSystem.LoadExternalConfig(ModEntry.ModName, typeof(T).Name + ".json");
 
         if (jsonAsset == null)
         {

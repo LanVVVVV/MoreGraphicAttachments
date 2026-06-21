@@ -7,6 +7,7 @@ using MoreGraphicAttachments.Patches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.Sprites;
 using MoreGraphicAttachments.UI;
+using SystemExtensionLib.Systems;
 using UnityEngine;
 
 namespace MoreGraphicAttachments;
@@ -17,7 +18,7 @@ public static class ModEntry
 
     public static void Load()
     {
-        ConfigSystem.ExportAllEmbeddedFile(ModName, "json");
+        ConfigSystem.ExportAllEmbeddedConfig(ModName);
 
         UISpriteLoad.LoadSprite();
 
