@@ -1,0 +1,39 @@
+﻿using HarmonyLib;
+using MBMScripts;
+using MoreGraphicAttachments.Features;
+using UnityEngine;
+
+namespace MoreGraphicAttachments.Patches
+{
+    [HarmonyPatch(typeof(InteractionUnit))]
+    public static class InteractionUnitClothesPatch
+    {
+        [HarmonyPatch(nameof(InteractionUnit.Clothes))]
+        [HarmonyPrefix]
+        public static bool ClothesPrefix(TargetUnit ___m_TargetUnit)
+        {
+            if (___m_TargetUnit == null || !(___m_TargetUnit.Unit is Female { IsDisabled: false } female))
+            {
+                return false;
+            }
+
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                SeqList<Unit> unitList = GameManager.Instance.PlayerData.GetUnitList(ESector.Female);
+
+                int clothesType = ClothesTypeHelper.TransformClothesType(female);
+                foreach (Unit unit in unitList)
+                {
+                    if (unit is Female { IsDisabled: false } femaleInList)
+                    {
+                        femaleInList.ClothesType = clothesType;
+                    }
+                }
+                return false;
+            }
+
+            female.ClothesType = ClothesTypeHelper.TransformClothesType(female);
+            return false;
+        }
+    }
+}

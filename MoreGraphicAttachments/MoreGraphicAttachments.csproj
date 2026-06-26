@@ -4,7 +4,7 @@
     <TargetFramework>net481</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>1.3.1.0</Version>
+    <Version>1.3.1.1</Version>
     <Authors>LanFengVVV</Authors>
     <Company>LanFengVVV </Company>
     <Description>$(AssemblyName) Mod for Monster Black Market, using MBM.ModLoader</Description>
@@ -83,6 +83,10 @@
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>$(MBM)\MonsterBlackMarket_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\MBM.ModLoader For v2.1.2.0\Monster_Black_Market_v2.1.2.0 - MBM.ModLoader\MonsterBlackMarket_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
