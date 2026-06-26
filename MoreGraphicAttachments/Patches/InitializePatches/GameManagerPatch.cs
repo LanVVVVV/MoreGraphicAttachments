@@ -2,7 +2,7 @@
 using MBMScripts;
 using System;
 
-namespace MoreGraphicAttachments.Patches;
+namespace MoreGraphicAttachments.Patches.InitializePatches;
 
 [HarmonyPatch(typeof(GameManager), "InitializeData")]
 public static class GameManagerPatch

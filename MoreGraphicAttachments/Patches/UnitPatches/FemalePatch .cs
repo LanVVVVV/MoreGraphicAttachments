@@ -3,7 +3,7 @@ using MBMScripts;
 using MoreGraphicAttachments.ExtensionData;
 using MoreGraphicAttachments.ExtensionField;
 
-namespace MoreGraphicAttachments.Patches;
+namespace MoreGraphicAttachments.Patches.UnitPatches;
 
 [HarmonyPatch(typeof(Female))]
 public class FemalePatch

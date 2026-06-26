@@ -3,7 +3,7 @@ using MBM.ModLoader.Settings;
 using MoreGraphicAttachments.ExtensionData;
 using MoreGraphicAttachments.ExtensionField;
 using MoreGraphicAttachments.ExtensionSpineData;
-using MoreGraphicAttachments.Patches;
+using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.Sprites;
 using MoreGraphicAttachments.UI;

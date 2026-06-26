@@ -2,7 +2,7 @@
 using MBMScripts;
 using MoreGraphicAttachments.ExtensionData;
 
-namespace MoreGraphicAttachments.Patches;
+namespace MoreGraphicAttachments.Patches.UnitPatches;
 
 [HarmonyPatch(typeof(Male))]
 public class MalePatch

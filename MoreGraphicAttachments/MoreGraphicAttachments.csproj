@@ -31,6 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bin\Debug\net481\run.bat" />
+    <None Include="bin\Release\net481\run.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>$(MBM)\MBM.ModLoader\0Harmony.dll</HintPath>
       <Private>False</Private>

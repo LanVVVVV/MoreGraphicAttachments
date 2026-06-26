@@ -7,7 +7,7 @@ using Spine;
 using Spine.Unity;
 using UnityEngine;
 
-namespace MoreGraphicAttachments.Patches;
+namespace MoreGraphicAttachments.Patches.ComponentPatches;
 
 [HarmonyPatch(typeof(UpdaterSpineCharacter), "OnChangeSpine")]
 public static class UpdaterSpineCharacterPatch
