@@ -15,6 +15,10 @@ public class ClothesColorSlotUI
 
     private static GameObject ColorPickerPanel { get; set; } = null!;
 
+    private static bool _isInjected = false;
+
+    private static bool _isGlobalEventRegistered = false;
+
     public static void OnLanguageChanged()
     {
         foreach (var labelRf in LabelRsList)
@@ -29,6 +33,8 @@ public class ClothesColorSlotUI
 
     public static void InjectSlot()
     {
+        if (_isInjected) return;
+
         var canvas = GameObject.Find("Window Female Information (Window)/Canvas");
         canvas.SetActive(false);
 
@@ -47,34 +53,49 @@ public class ClothesColorSlotUI
 
         #region Value
         GameObject obj = null!;
+        BinderTextMeshPro binderText = null!;
+        BinderTextMeshProText binderTextText = null!;
         foreach (var mb in clothColorSlot.GetComponentsInChildren<MonoBehaviour>(true))
         {
             if (mb is ReferenceCharacterLook reference)
             {
                 obj = reference.gameObject;
+                binderText = obj.GetComponent<BinderTextMeshPro>();
+                binderTextText = obj.GetComponent<BinderTextMeshProText>();
                 Object.DestroyImmediate(mb);
             }
         }
 
-        var referenceClothesColor = obj.AddComponent<ReferenceClothesColor>();
-        referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
-        var referenceClothesColorText = obj.AddComponent<ReferenceClothesColor>();
-        referenceClothesColorText.DataType = ReferenceClothesColor.EDataType.ColorText;
-        ComponentTools.
-                SetReferenceArray(obj?.GetComponent<BinderTextMeshPro>(), [referenceClothesColor!]);
-        ComponentTools.SetReferenceArray(obj?.GetComponent<BinderTextMeshProText>(), [referenceClothesColorText!]);
+        if (obj != null)
+        {
+            var referenceClothesColor = obj.AddComponent<ReferenceClothesColor>();
+            referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
+
+            var referenceClothesColorText = obj.AddComponent<ReferenceClothesColor>();
+            referenceClothesColorText.DataType = ReferenceClothesColor.EDataType.ColorText;
+
+            if (binderText != null) ComponentTools.SetReferenceArray(binderText, [referenceClothesColor]);
+            if (binderTextText != null) ComponentTools.SetReferenceArray(binderTextText, [referenceClothesColorText]);
+        }
         #endregion
 
         ColorPickerPanel = AddClothesColorPanel(clothColorSlot);
 
-        AddClothesColorButton(clothColorSlot);
+        AddClothesColorButton(clothColorSlot, ColorPickerPanel);
 
-        PlayDataPatch.AfterSaveDataInitialized += CloseColorPickerPanel;
+        if (!_isGlobalEventRegistered)
+        {
+            PlayDataPatch.AfterSaveDataInitialized += CloseColorPickerPanel;
+            _isGlobalEventRegistered = true;
+        }
+
+        _isInjected = true;
     }
+
     private static GameObject AddClothesColorPanel(GameObject clothColorSlot)
     {
-        var colorpanel = UIExtraction.Panel!.transform;
-        colorpanel.SetParent(clothColorSlot.transform, false);
+        var colorpanel = Object.Instantiate(UIExtraction.Panel, clothColorSlot.transform);
+        colorpanel!.name = "ClothesColorPanel";
 
         var panelRT = colorpanel.GetComponent<RectTransform>();
         panelRT.anchorMin = new Vector2(0, 1);
@@ -83,7 +104,7 @@ public class ClothesColorSlotUI
         panelRT.anchoredPosition = new Vector2(-13, 0);
         panelRT.sizeDelta = new Vector2(300, 250);
 
-        var label = colorpanel.Find("Label").gameObject;
+        var label = colorpanel.transform.Find("Label").gameObject;
         var labelRft = label.GetComponentInChildren<ReferenceFormattingText>(true);
         var tmp = label.GetComponentInChildren<TMPro.TextMeshProUGUI>(true);
         tmp.fontSizeMax = 24f;
@@ -91,21 +112,30 @@ public class ClothesColorSlotUI
         labelRft.Value = Strings.Slot_ClothesColor;
         LabelRftList.Add(labelRft);
 
-        var exitIcon = colorpanel.Find("Exit Button").gameObject;
-        ComponentTools.AddClickEvent(exitIcon, CloseColorPickerPanel);
+        var exitIcon = colorpanel.transform.Find("Exit Button").gameObject;
+        ComponentTools.AddClickEvent(exitIcon, () => colorpanel.SetActive(false));
 
         // === ColorPicker ===
-        var body = colorpanel.Find("Body");
-        var colorPicker = UIExtraction.ClothesColorPicker!.transform;
-        colorPicker.SetParent(body.transform, false);
+        var body = colorpanel.transform.Find("Body");
 
-        colorPicker.gameObject.SetActive(true);
+        var colorPicker = Object.Instantiate(UIExtraction.ClothesColorPicker, body);
+        colorPicker!.name = "ClothesColorPickerInstance";
 
-        return colorpanel.gameObject;
+        var flexibleColorPicker = colorPicker.GetComponent<FlexibleColorPicker>();
+        var interaction = colorPicker.GetComponent<InteractionClothesColor>();
+        flexibleColorPicker.onColorChange.RemoveAllListeners();
+        flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
+
+        colorPicker.SetActive(true);
+
+        return colorpanel;
     }
-    private static GameObject AddClothesColorButton(GameObject clothColorSlot)
+
+    private static GameObject AddClothesColorButton(GameObject clothColorSlot, GameObject targetPanel)
     {
-        var colorModifyButton = UIExtraction.ColorModifyButton!;
+        var colorModifyButton = Object.Instantiate(UIExtraction.ColorModifyButton, clothColorSlot.transform);
+        colorModifyButton!.name = "ColorModifyButton";
+
         colorModifyButton.transform.SetParent(clothColorSlot.transform, false);
 
         var rt = colorModifyButton.GetComponent<RectTransform>();
@@ -114,17 +144,11 @@ public class ClothesColorSlotUI
         rt.pivot = new Vector2(0.5f, 0.5f);
         rt.sizeDelta = new Vector2(28, 28);
         rt.anchoredPosition = new Vector2(60, -10);
-        ComponentTools.AddClickEvent(colorModifyButton, ToggleColorPickerPanel);
+        ComponentTools.AddClickEvent(colorModifyButton, () => targetPanel.SetActive(!targetPanel.activeSelf));
 
         colorModifyButton.SetActive(true);
 
         return colorModifyButton;
-    }
-
-    private static void ToggleColorPickerPanel()
-    {
-        bool isActive = ColorPickerPanel.activeSelf;
-        ColorPickerPanel.SetActive(!isActive);
     }
 
     private static void CloseColorPickerPanel()

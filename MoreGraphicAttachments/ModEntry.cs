@@ -24,9 +24,7 @@ public static class ModEntry
 
         ModConfig.ModSettingRegister();
 
-        SeqObjectPoolManagerPatch.AfterGameInitialized += GalleryClothesColorSlotUI.InjectSlot;
-        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.AllForClothesColorSlotUI;
-        SeqObjectPoolManagerPatch.AfterGameInitialized += ClothesColorSlotUI.InjectSlot;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.Initialize;
 
         GameManagerPatch.AfterDataInitialized += LoadData.Initialize;
         SpineDataPatch.AfterSpineDataInitialized += LoadSpineData.Initialize;

@@ -15,6 +15,22 @@ public class UIExtraction
 
     public static GameObject? Panel { get; set; }
 
+    public static void Initialize() 
+    {
+        GalleryClothesColorSlotUI.InjectSlot();
+        AllForClothesColorSlotUI();
+        ClothesColorSlotUI.InjectSlot();
+
+        Clear();
+    }
+
+    public static void Clear()
+    {
+        GameObject.DestroyImmediate(ClothesColorPicker);
+        GameObject.DestroyImmediate(ColorModifyButton);
+        GameObject.DestroyImmediate(Panel);
+    }
+
     public static void AllForClothesColorSlotUI()
     {
         ExtractionClothesColorPicker();
@@ -24,30 +40,33 @@ public class UIExtraction
 
     private static void ExtractionClothesColorPicker()
     {
-        ClothesColorPicker!.SetActive(false);
-        var colorPicker = GameObject.Instantiate(ClothesColorPicker!);
-        ClothesColorPicker.SetActive(true);
+        var colorPickerSource = ClothesColorPicker;
+        colorPickerSource!.SetActive(false);
+        var colorPicker = GameObject.Instantiate(colorPickerSource!);
+        colorPickerSource.SetActive(true);
+
         colorPicker.name = "Color Picker";
         var colorPickerRT = colorPicker.GetComponent<RectTransform>();
-        colorPickerRT.anchorMin = new Vector2(0, 0);
-        colorPickerRT.anchorMax = new Vector2(1, 1);
-        colorPickerRT.pivot = new Vector2(0, 1);
-        colorPickerRT.anchoredPosition = new Vector2(0, 0);
-        colorPickerRT.offsetMax = new Vector2(0, 0);
-        colorPickerRT.offsetMin = new Vector2(0, 0);
-        UnityEngine.Object.Destroy(colorPicker.GetComponent<Image>());
-        GameObject.Destroy(colorPickerRT.Find("Text (TMP)").gameObject);
+        colorPickerRT.anchorMin = Vector2.zero;
+        colorPickerRT.anchorMax = Vector2.one;
+        colorPickerRT.pivot = Vector2.up;
+        colorPickerRT.anchoredPosition = Vector2.zero;
+        colorPickerRT.offsetMin = Vector2.zero;
+        colorPickerRT.offsetMax = Vector2.zero;
+        GameObject.DestroyImmediate(colorPicker.GetComponent<Image>());
+        GameObject.DestroyImmediate(colorPickerRT.Find("Text (TMP)").gameObject);
+        GameObject.DestroyImmediate(colorPicker.GetComponent<ClothesColorPickerInitialization>());
+
+        var referenceClothesColor = colorPicker.AddComponent<ReferenceClothesColor>();
+        referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
+
+        colorPicker.AddComponent<UpdaterColorPicker>();
+        ComponentTools.SetReferenceArray(colorPicker.GetComponent<UpdaterColorPicker>(), [referenceClothesColor!]);
 
         var flexibleColorPicker = colorPicker.GetComponent<FlexibleColorPicker>();
         var interaction = colorPicker.GetComponent<InteractionClothesColor>();
         flexibleColorPicker.onColorChange.RemoveAllListeners();
         flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
-
-        UnityEngine.Object.Destroy(colorPicker.GetComponent<ClothesColorPickerInitialization>());
-        var referenceClothesColor = colorPicker.AddComponent<ReferenceClothesColor>();
-        referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
-        colorPicker.AddComponent<UpdaterColorPicker>();
-        ComponentTools.SetReferenceArray(colorPicker?.GetComponent<UpdaterColorPicker>(), [referenceClothesColor!]);
 
         ClothesColorPicker = colorPicker;
     }
@@ -60,6 +79,7 @@ public class UIExtraction
         colorModifyButton.name = "ColorModify";
         var image = colorModifyButton.GetComponent<Image>();
         image.sprite = UISpriteLoad.SpriteButtonColorModify;
+        GameObject.DestroyImmediate(colorModifyButton.GetComponent<InteractionWindow>());
         ComponentTools.RemoveClickEvent(colorModifyButton);
 
         colorModifyButton.SetActive(false);
@@ -104,6 +124,8 @@ public class UIExtraction
         var rootExitIcon = root.Find("Exit Button").gameObject;
         var exitIcon = GameObject.Instantiate(rootExitIcon, panelRT);
         exitIcon.name = "Exit Button";
+        GameObject.DestroyImmediate(exitIcon.GetComponent<InteractionClickEvent>());
+        GameObject.DestroyImmediate(exitIcon.GetComponent<InteractionWindow>());
         ComponentTools.RemoveClickEvent(exitIcon);
 
         Panel = panel;

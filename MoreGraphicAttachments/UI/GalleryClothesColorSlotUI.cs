@@ -12,6 +12,8 @@ public class GalleryClothesColorSlotUI
 {
     private static List<ReferenceFormattingText> LabelRfyList { get; set; } = [];
 
+    private static bool _isInjected = false;
+
     public static void OnLanguageChanged()
     {
         foreach (var labelRfy in LabelRfyList)
@@ -22,6 +24,8 @@ public class GalleryClothesColorSlotUI
 
     public static void InjectSlot()
     {
+        if (_isInjected) return;
+
         var slaveLayout = GameObject.Find("Galley/Canvas/LetterBox/Frame/Slave Customize/Layout").transform;
         var color0 = slaveLayout.Find("Color");
         var color1 = slaveLayout.Find("Slave2/Color (1)");
@@ -76,14 +80,20 @@ public class GalleryClothesColorSlotUI
                     Object.DestroyImmediate(mb);
             }
 
-            var flexibleColorPicker = clothColorSlot.GetComponent<FlexibleColorPicker>();
             clothColorSlot.AddComponent<ClothesColorPickerInitialization>();
+
+            var flexibleColorPicker = clothColorSlot.GetComponent<FlexibleColorPicker>();
             var interaction = clothColorSlot.AddComponent<InteractionClothesColor>();
 
             flexibleColorPicker.onColorChange.RemoveAllListeners();
             flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
 
-            UIExtraction.ClothesColorPicker ??= clothColorSlot;
+            if (UIExtraction.ClothesColorPicker == null)
+            {
+                UIExtraction.ClothesColorPicker = clothColorSlot;
+            }
+            
+            _isInjected = true;
         }
     }
 }
