@@ -14,7 +14,7 @@ namespace MoreGraphicAttachments.Patches
             TargetUnit componentInParent = __instance.GetComponentInParent<TargetUnit>();
             if (!(componentInParent == null) && componentInParent.Unit is Female female)
             {
-                female.ClothesType = ClothesTypeHelper.TransformClothesType(female);
+                female.ClothesType = ClothesTypeHelper.ToggleClothes(female);
             }
             return false;
         }

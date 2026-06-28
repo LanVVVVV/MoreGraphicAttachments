@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using MBMScripts;
+using MoreGraphicAttachments.Features;
 
 namespace MoreGraphicAttachments.Patches.UnitPatches;
 
@@ -10,8 +11,6 @@ public class CharacterPatch
     [HarmonyPrefix]
     public static bool ClothesTypeGetterPrefix(Character __instance, ref int __result, int ___m_ClothesType)
     {
-        SeqDataBinding.Instance.RegisterFlag(__instance, "ClothesType");
-        __result = ___m_ClothesType < 0 ? 0 : ___m_ClothesType;
-        return false;
+        return ClothesTypeHelper.ClothesTypeGetterPatch(__instance, out __result, ___m_ClothesType);
     }
 }

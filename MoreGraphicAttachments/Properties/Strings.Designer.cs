@@ -122,5 +122,14 @@ namespace MoreGraphicAttachments.Properties {
                 return ResourceManager.GetString("Slot_ClothesColor", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Clothes Type 的本地化字符串。
+        /// </summary>
+        internal static string Slot_ClothesType {
+            get {
+                return ResourceManager.GetString("Slot_ClothesType", resourceCulture);
+            }
+        }
     }
 }

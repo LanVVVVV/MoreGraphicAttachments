@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MoreGraphicAttachments.UIComponents;
+namespace MoreGraphicAttachments.Features;
 
 public static class ComponentTools
 {

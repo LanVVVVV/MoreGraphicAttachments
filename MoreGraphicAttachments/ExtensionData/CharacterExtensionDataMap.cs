@@ -136,4 +136,21 @@ public static class CharacterExtensionDataMap<T> where T : ExtensionCharacterDat
 
         return Default;
     }
+
+    public static T Get(Type characterType)
+    {
+        if (!initialized)
+        {
+            ModEntry.LogError($"ExtensionDataMap<{typeof(T).Name}> used before Init()!");
+            return Default;
+        }
+
+        if (characterType == null)
+            return Default;
+
+        if (_map!.TryGetValue(characterType, out var extensionData))
+            return extensionData;
+
+        return Default;
+    }
 }

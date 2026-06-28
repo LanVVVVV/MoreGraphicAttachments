@@ -1,0 +1,44 @@
+{
+  "list": [
+    {
+      "m_CharacterClass": "MBMScripts.Human",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Elf",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Dwarf",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Neko",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Inu",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Usagi",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Hitsuji",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Dragonian",
+      "m_ClothesTypeList": [ 1 ],
+      "m_ClothesTypeChanceList": [ 1 ]
+    }
+  ]
+}

@@ -8,5 +8,8 @@ public static class LoadData
         CharacterExtensionDataMap<NoseTypeData>.Init();
         CharacterExtensionDataMap<ToothTypeData>.Init();
         CharacterExtensionDataMap<ClothesColorData>.Init();
+        CharacterExtensionDataMap<ClothesTypeData>.Init();
+
+        ClothesTypeData.BuildGlobalClothesTypeList();
     }
 }

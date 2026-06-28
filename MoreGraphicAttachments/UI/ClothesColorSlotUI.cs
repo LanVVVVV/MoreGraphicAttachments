@@ -1,4 +1,5 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
@@ -35,8 +36,9 @@ public class ClothesColorSlotUI
     {
         if (_isInjected) return;
 
-        var canvas = GameObject.Find("Window Female Information (Window)/Canvas");
-        canvas.SetActive(false);
+        var root = GameObject.Find("Window Female Information (Window)");
+        var canvas = root?.transform.Find("Canvas")?.gameObject;
+        canvas!.SetActive(false);
 
         var contentLeft = canvas.transform.Find("LetterBox/Frame/Window (1)/Content/Upper Left").transform;
         var referenceSlot = contentLeft.Find("Eye Ball Color");
@@ -68,11 +70,11 @@ public class ClothesColorSlotUI
 
         if (obj != null)
         {
-            var referenceClothesColor = obj.AddComponent<ReferenceClothesColor>();
-            referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
+            var referenceClothesColor = obj.AddComponent<ReferenceClothes>();
+            referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
 
-            var referenceClothesColorText = obj.AddComponent<ReferenceClothesColor>();
-            referenceClothesColorText.DataType = ReferenceClothesColor.EDataType.ColorText;
+            var referenceClothesColorText = obj.AddComponent<ReferenceClothes>();
+            referenceClothesColorText.DataType = ReferenceClothes.EDataType.ColorText;
 
             if (binderText != null) ComponentTools.SetReferenceArray(binderText, [referenceClothesColor]);
             if (binderTextText != null) ComponentTools.SetReferenceArray(binderTextText, [referenceClothesColorText]);

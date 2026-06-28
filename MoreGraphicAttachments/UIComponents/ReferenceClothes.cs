@@ -1,11 +1,12 @@
 ﻿using MBMScripts;
 using MoreGraphicAttachments.ExtensionData;
 using MoreGraphicAttachments.ExtensionField;
+using MoreGraphicAttachments.Features;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UIComponents;
 
-public class ReferenceClothesColor : Reference
+public class ReferenceClothes : Reference
 {
     [SerializeField]
     private EDataType m_DataType;
@@ -32,6 +33,9 @@ public class ReferenceClothesColor : Reference
             case EDataType.Color:
                 ReferenceType = EReferenceType.Color;
                 break;
+            case EDataType.Type:
+                ReferenceType = EReferenceType.String;
+                break;
         }
     }
 
@@ -50,7 +54,14 @@ public class ReferenceClothesColor : Reference
         Character? character = (targetUnit?.Unit) as Character;
         if (character == null) return string.Empty;
 
-        return SeqLocalization.Localize(GetColorText(character.Extra().ClothesColor));
+        switch (m_DataType)
+        {
+            case EDataType.ColorText:
+                return SeqLocalization.Localize(GetColorText(character.Extra().ClothesColor));
+            case EDataType.Type:
+                return string.Format(SeqLocalization.Localize("#TypeFormat"), character.GetClothesType().ToString());
+            default: return string.Empty;
+        }
     }
 
     public static string GetColorText(Color color)
@@ -127,6 +138,7 @@ public class ReferenceClothesColor : Reference
     public enum EDataType
     {
         ColorText,
-        Color
+        Color,
+        Type
     }
 }

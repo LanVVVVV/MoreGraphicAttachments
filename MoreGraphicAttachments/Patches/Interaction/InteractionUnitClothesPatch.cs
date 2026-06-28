@@ -21,7 +21,7 @@ namespace MoreGraphicAttachments.Patches
             {
                 SeqList<Unit> unitList = GameManager.Instance.PlayerData.GetUnitList(ESector.Female);
 
-                int clothesType = ClothesTypeHelper.TransformClothesType(female);
+                int clothesType = ClothesTypeHelper.ToggleClothes(female);
                 foreach (Unit unit in unitList)
                 {
                     if (unit is Female { IsDisabled: false } femaleInList)
@@ -32,7 +32,7 @@ namespace MoreGraphicAttachments.Patches
                 return false;
             }
 
-            female.ClothesType = ClothesTypeHelper.TransformClothesType(female);
+            female.ClothesType = ClothesTypeHelper.ToggleClothes(female);
             return false;
         }
     }

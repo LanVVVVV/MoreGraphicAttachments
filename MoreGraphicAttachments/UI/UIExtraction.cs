@@ -1,4 +1,5 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Sprites;
 using MoreGraphicAttachments.UIComponents;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace MoreGraphicAttachments.UI;
 
 public class UIExtraction
 {
+    public static GameObject? FemaleInformationCanvas { get; set; }
+
     // After GalleryClothesColorSlotUI
     public static GameObject? ClothesColorPicker { get; set; }
 
@@ -20,6 +23,9 @@ public class UIExtraction
         GalleryClothesColorSlotUI.InjectSlot();
         AllForClothesColorSlotUI();
         ClothesColorSlotUI.InjectSlot();
+
+        GalleryClothesTypeSlotUI.InjectSlot();
+        ClothesTypeSlotUI.InjectSlot();
 
         Clear();
     }
@@ -57,8 +63,8 @@ public class UIExtraction
         GameObject.DestroyImmediate(colorPickerRT.Find("Text (TMP)").gameObject);
         GameObject.DestroyImmediate(colorPicker.GetComponent<ClothesColorPickerInitialization>());
 
-        var referenceClothesColor = colorPicker.AddComponent<ReferenceClothesColor>();
-        referenceClothesColor.DataType = ReferenceClothesColor.EDataType.Color;
+        var referenceClothesColor = colorPicker.AddComponent<ReferenceClothes>();
+        referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
 
         colorPicker.AddComponent<UpdaterColorPicker>();
         ComponentTools.SetReferenceArray(colorPicker.GetComponent<UpdaterColorPicker>(), [referenceClothesColor!]);

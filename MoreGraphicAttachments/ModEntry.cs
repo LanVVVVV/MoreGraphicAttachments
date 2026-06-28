@@ -50,6 +50,8 @@ public static class ModEntry
         ModConfig.OnLanguageChanged();
         GalleryClothesColorSlotUI.OnLanguageChanged();
         ClothesColorSlotUI.OnLanguageChanged();
+        GalleryClothesTypeSlotUI.OnLanguageChanged();
+        ClothesTypeSlotUI.OnLanguageChanged();
 
         Log($"language changed: {langCode}");
     }

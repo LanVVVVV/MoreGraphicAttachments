@@ -138,4 +138,7 @@
   <data name="Config_ClothesColorInherit" xml:space="preserve">
     <value>子代是否继承衣服颜色</value>
   </data>
+  <data name="Slot_ClothesType" xml:space="preserve">
+    <value>衣服类型</value>
+  </data>
 </root>
