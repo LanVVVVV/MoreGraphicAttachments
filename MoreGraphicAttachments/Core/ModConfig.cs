@@ -2,7 +2,7 @@
 using MoreGraphicAttachments.Properties;
 using System.Collections.Generic;
 
-namespace MoreGraphicAttachments;
+namespace MoreGraphicAttachments.Core;
 
 public static class ModConfig
 {

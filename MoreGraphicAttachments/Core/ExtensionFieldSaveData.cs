@@ -1,9 +1,10 @@
 ﻿using MBM.ModLoader.Settings;
 using MBMScripts;
+using MoreGraphicAttachments.ExtensionField;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace MoreGraphicAttachments.ExtensionField;
+namespace MoreGraphicAttachments.Core;
 
 public static class ExtensionFieldSaveData
 {

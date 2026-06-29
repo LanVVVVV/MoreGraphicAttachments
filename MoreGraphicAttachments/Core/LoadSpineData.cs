@@ -1,6 +1,7 @@
 ﻿using MBM.ModLoader.Core;
+using MoreGraphicAttachments.ExtensionSpineData;
 
-namespace MoreGraphicAttachments.ExtensionSpineData;
+namespace MoreGraphicAttachments.Core;
 
 public static class LoadSpineData
 {

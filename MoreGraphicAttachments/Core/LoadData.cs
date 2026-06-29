@@ -1,5 +1,7 @@
-﻿namespace MoreGraphicAttachments.ExtensionData;
+﻿using MoreGraphicAttachments.ExtensionData;
+using MoreGraphicAttachments.ExtensionData.Data;
 
+namespace MoreGraphicAttachments.Core;
 
 public static class LoadData
 {

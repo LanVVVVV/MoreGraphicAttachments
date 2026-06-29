@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MoreGraphicAttachments.ExtensionData;
+namespace MoreGraphicAttachments.ExtensionData.Data;
 
 [Serializable]
 public class ExtensionCharacterData

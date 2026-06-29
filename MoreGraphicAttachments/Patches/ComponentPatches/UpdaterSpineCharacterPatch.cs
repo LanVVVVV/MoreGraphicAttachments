@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using MBMScripts;
-using MoreGraphicAttachments.ExtensionData;
+using MoreGraphicAttachments.ExtensionData.Data;
 using MoreGraphicAttachments.ExtensionField;
 using MoreGraphicAttachments.ExtensionSpine;
 using Spine;

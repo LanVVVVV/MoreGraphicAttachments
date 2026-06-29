@@ -1,8 +1,5 @@
 ﻿using MBM.ModLoader.Core;
 using MBM.ModLoader.Settings;
-using MoreGraphicAttachments.ExtensionData;
-using MoreGraphicAttachments.ExtensionField;
-using MoreGraphicAttachments.ExtensionSpineData;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.Sprites;
@@ -10,7 +7,7 @@ using MoreGraphicAttachments.UI;
 using SystemExtensionLib.Systems;
 using UnityEngine;
 
-namespace MoreGraphicAttachments;
+namespace MoreGraphicAttachments.Core;
 
 public static class ModEntry
 {

@@ -1,9 +1,10 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Core;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MoreGraphicAttachments.ExtensionData;
+namespace MoreGraphicAttachments.ExtensionData.Data;
 
 [Serializable]
 public class ClothesColorData : ExtensionCharacterData

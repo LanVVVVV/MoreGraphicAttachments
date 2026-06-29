@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using MBMScripts;
+using MoreGraphicAttachments.Core;
 using MoreGraphicAttachments.ExtensionData;
+using MoreGraphicAttachments.ExtensionData.Data;
 using MoreGraphicAttachments.ExtensionField;
 
 namespace MoreGraphicAttachments.Patches.UnitPatches;

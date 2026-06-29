@@ -1,4 +1,6 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Core;
+using MoreGraphicAttachments.ExtensionData.Data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

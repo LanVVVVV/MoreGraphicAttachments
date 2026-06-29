@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace MoreGraphicAttachments.ExtensionData;
+namespace MoreGraphicAttachments.ExtensionData.Data;
 
 [Serializable]
 public class ToothTypeData : ExtensionCharacterData

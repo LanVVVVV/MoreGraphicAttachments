@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using MBMScripts;
 using MoreGraphicAttachments.ExtensionData;
+using MoreGraphicAttachments.ExtensionData.Data;
 using System;
 using System.Collections.Generic;
 
