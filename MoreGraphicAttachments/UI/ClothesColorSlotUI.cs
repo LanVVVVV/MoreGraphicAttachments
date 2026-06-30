@@ -4,6 +4,7 @@ using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
 using System.Collections.Generic;
+using SystemExtensionLib.Systems;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
@@ -41,14 +42,16 @@ public class ClothesColorSlotUI
         canvas!.SetActive(false);
 
         var contentLeft = canvas.transform.Find("LetterBox/Frame/Window (1)/Content/Upper Left").transform;
-        var referenceSlot = contentLeft.Find("Eye Ball Color");
+        var referenceSlot = contentLeft.Find("Eye Ball Color").gameObject;
 
-        var clothColorSlot = Object.Instantiate(referenceSlot.gameObject, contentLeft);
-        clothColorSlot.name = "Clothes Color";
-        clothColorSlot.transform.SetSiblingIndex(referenceSlot.GetSiblingIndex() + 1);
+        //var clothColorSlot = Object.Instantiate(referenceSlot.gameObject, contentLeft);
+        //clothColorSlot.name = "Clothes Color";
+        //clothColorSlot.transform.SetSiblingIndex(referenceSlot.GetSiblingIndex() + 1);
+
+        var clothColorSlot = InformationLookExtendedArea.AddCloneCell(referenceSlot, "Clothes Color");
 
         #region Label
-        var labelRs = clothColorSlot.GetComponentInChildren<ReferenceString>(true);
+        var labelRs = clothColorSlot!.GetComponentInChildren<ReferenceString>(true);
         labelRs.Value = Strings.Slot_ClothesColor;
         LabelRsList.Add(labelRs);
         #endregion

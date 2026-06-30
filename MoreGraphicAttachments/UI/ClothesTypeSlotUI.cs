@@ -3,6 +3,7 @@ using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
 using System.Collections.Generic;
+using SystemExtensionLib.Systems;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
@@ -30,14 +31,16 @@ public class ClothesTypeSlotUI
         canvas!.SetActive(false);
 
         var contentRight = canvas.transform.Find("LetterBox/Frame/Window (1)/Content/Upper Right").transform;
-        var referenceSlot = contentRight.Find("Voice");
+        var referenceSlot = contentRight.Find("Voice").gameObject;
 
-        var clothTypeSlot = Object.Instantiate(referenceSlot.gameObject, contentRight);
-        clothTypeSlot.name = "Clothes Type";
-        clothTypeSlot.transform.SetSiblingIndex(contentRight.Find("Looks").GetSiblingIndex() + 1);
+        //var clothTypeSlot = Object.Instantiate(referenceSlot.gameObject, contentRight);
+        //clothTypeSlot.name = "Clothes Type";
+        //clothTypeSlot.transform.SetSiblingIndex(contentRight.Find("Looks").GetSiblingIndex() + 1);
+
+        var clothTypeSlot = InformationLookExtendedArea.AddCloneCell(referenceSlot, "Clothes Type");
 
         #region Label
-        var labelRfy = clothTypeSlot.transform.Find("Text").GetComponent<ReferenceFormattingText>();
+        var labelRfy = clothTypeSlot!.transform.Find("Text").GetComponent<ReferenceFormattingText>();
         labelRfy.Value = Strings.Slot_ClothesType;
         LabelRfyList.Add(labelRfy);
         #endregion
