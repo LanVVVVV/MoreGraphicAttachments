@@ -97,4 +97,9 @@ public static class ClothesTypeHelper
             index = (index - 1 + list.Count) % list.Count;
         character.SetClothesType(list[index]);
     }
+
+    public static void ChangeBusinessPartnerType(this Female businessPartner)
+    {
+        businessPartner.ClothesType = ((businessPartner.ClothesType == 1) ? 2 : 1);
+    }
 }

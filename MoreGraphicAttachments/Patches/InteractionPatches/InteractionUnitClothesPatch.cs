@@ -12,10 +12,8 @@ public static class InteractionUnitClothesPatch
     [HarmonyPrefix]
     public static bool ClothesPrefix(TargetUnit ___m_TargetUnit)
     {
-        if (___m_TargetUnit == null || !(___m_TargetUnit.Unit is Female { IsDisabled: false } female))
-        {
-            return false;
-        }
+        if (___m_TargetUnit?.Unit is not Female { IsDisabled: false } female) return false;
+
 
         if (Input.GetKey(KeyCode.LeftAlt))
         {
