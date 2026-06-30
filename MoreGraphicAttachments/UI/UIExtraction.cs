@@ -79,7 +79,9 @@ public class UIExtraction
 
     private static void ExtractionColorModifyButton()
     {
-        var renameButton = GameObject.Find("Window Female Information (Window)/Canvas/LetterBox/Frame/Window (0)/Favorite/Rename");
+        var root = GameObject.Find("Window Female Information (Window)");
+        var renameButton = root.transform.Find("Canvas/LetterBox/Frame/Window (0)/Favorite/Rename").gameObject;
+
         var colorModifyButton = GameObject.Instantiate(renameButton);
 
         colorModifyButton.name = "ColorModify";
@@ -95,8 +97,9 @@ public class UIExtraction
 
     private static void ExtractionPanelWindow()
     {
-        var canvas = GameObject.Find("Unit List (Window)/Canvas");
-        canvas.SetActive(false);
+        var rootUnit = GameObject.Find("Unit List (Window)");
+        var canvas = rootUnit?.transform.Find("Canvas")?.gameObject;
+        canvas!.SetActive(false);
 
         var root = canvas.transform.Find("LetterBox/Frame/Window/Background").transform;
 

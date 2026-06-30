@@ -26,7 +26,9 @@ public class GalleryClothesColorSlotUI
     {
         if (_isInjected) return;
 
-        var slaveLayout = GameObject.Find("Galley/Canvas/LetterBox/Frame/Slave Customize/Layout").transform;
+        var galleyRoot = GameObject.Find("Galley");
+        var slaveLayout = galleyRoot.transform.Find("Canvas/LetterBox/Frame/Slave Customize/Layout");
+
         var color0 = slaveLayout.Find("Color");
         var color1 = slaveLayout.Find("Slave2/Color (1)");
 

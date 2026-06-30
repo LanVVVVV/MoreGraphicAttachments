@@ -25,8 +25,10 @@ public class GalleryClothesTypeSlotUI
     {
         if (_isInjected) return;
 
-        var slaveAppearanceLeft = GameObject.Find("Galley/Canvas/LetterBox/Frame/Slave Customize/Layout/Appearance2/Slave").transform;
-        var clothesSlot = slaveAppearanceLeft.transform.Find("Clothes");
+        var galleyRoot = GameObject.Find("Galley");
+        var slaveLayout = galleyRoot.transform.Find("Canvas/LetterBox/Frame/Slave Customize/Layout");
+        var slaveAppearanceLeft = slaveLayout.Find("Appearance2/Slave");
+        var clothesSlot = slaveAppearanceLeft.Find("Clothes");
 
         var clothTypeSlot = Object.Instantiate(clothesSlot.gameObject, slaveAppearanceLeft);
         clothTypeSlot.name = "Clothes Type";
