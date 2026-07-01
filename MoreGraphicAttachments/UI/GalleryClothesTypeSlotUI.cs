@@ -3,6 +3,7 @@ using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
 using System.Collections.Generic;
+using SystemExtensionLib.Tools;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
@@ -40,17 +41,15 @@ public class GalleryClothesTypeSlotUI
         LabelRfyList.Add(labelRfy);
         #endregion
 
-        #region Value
+        #region TypeValue
         var referenceCustomize = clothTypeSlot.GetComponentInChildren<ReferenceCustomize>(true);
         var clothTypeText = referenceCustomize.gameObject;
-
-        BinderTextMeshProText binderTextText = clothTypeText.GetComponent<BinderTextMeshProText>();
         Object.DestroyImmediate(referenceCustomize);
 
+        BinderTextMeshProText binderText = clothTypeText.GetComponent<BinderTextMeshProText>();
         var referenceClothesType = clothTypeText.AddComponent<ReferenceClothes>();
         referenceClothesType.DataType = ReferenceClothes.EDataType.Type;
-
-        ComponentTools.SetReferenceArray(binderTextText, [referenceClothesType]);
+        ComponentTools.SetReferenceArray(binderText, [referenceClothesType]);
         #endregion
 
         #region ChangeArrow
@@ -59,8 +58,6 @@ public class GalleryClothesTypeSlotUI
 
         foreach (var arrow in new[] { arrowLeft, arrowRight })
         {
-            GameObject.DestroyImmediate(arrow.GetComponent<InteractionClickEvent>());
-            GameObject.DestroyImmediate(arrow.GetComponent<InteractionUnit>());
             ComponentTools.RemoveClickEvent(arrow);
         }
         ComponentTools.AddClickEvent(arrowLeft, () => OnLeftArrowClick(arrowLeft));

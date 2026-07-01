@@ -1,18 +1,17 @@
 ﻿using MBMScripts;
-using MoreGraphicAttachments.Features;
+using MoreGraphicAttachments.Core;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
 using System.Collections.Generic;
 using SystemExtensionLib.Systems;
+using SystemExtensionLib.Tools;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
 
 public class ClothesColorSlotUI
 {
-    private static List<ReferenceString> LabelRsList { get; set; } = [];
-
     private static List<ReferenceFormattingText> LabelRftList { get; set; } = [];
 
     private static GameObject ColorPickerPanel { get; set; } = null!;
@@ -23,10 +22,6 @@ public class ClothesColorSlotUI
 
     public static void OnLanguageChanged()
     {
-        foreach (var labelRf in LabelRsList)
-        {
-            labelRf.Value = Strings.Slot_ClothesColor;
-        }
         foreach (var labelRs in LabelRftList)
         {
             labelRs.Value = Strings.Slot_ClothesColor;
@@ -37,51 +32,22 @@ public class ClothesColorSlotUI
     {
         if (_isInjected) return;
 
-        var root = GameObject.Find("Window Female Information (Window)");
-        var canvas = root?.transform.Find("Canvas")?.gameObject;
-        canvas!.SetActive(false);
+        var clothColorSlot = ExtendedInfoSlotSystem.RegisterFemaleExtendedColorSlot(
+            ModEntry.ModName, "Clothes Color",
+            () => Strings.Slot_ClothesColor,
+            out var typeValue);
 
-        var contentLeft = canvas.transform.Find("LetterBox/Frame/Window (1)/Content/Upper Left").transform;
-        var referenceSlot = contentLeft.Find("Eye Ball Color").gameObject;
+        #region TypeValue
+        var binder = typeValue!.GetComponent<BinderTextMeshPro>();
+        var referenceClothesColor = typeValue.AddComponent<ReferenceClothes>();
+        referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
+        ComponentTools.SetReferenceArray(binder, [referenceClothesColor]);
 
-        //var clothColorSlot = Object.Instantiate(referenceSlot.gameObject, contentLeft);
-        //clothColorSlot.name = "Clothes Color";
-        //clothColorSlot.transform.SetSiblingIndex(referenceSlot.GetSiblingIndex() + 1);
+        var binderText = typeValue.GetComponent<BinderTextMeshProText>();
+        var referenceClothesColorText = typeValue.AddComponent<ReferenceClothes>();
+        referenceClothesColorText.DataType = ReferenceClothes.EDataType.ColorText;
+        ComponentTools.SetReferenceArray(binderText, [referenceClothesColorText]);
 
-        var clothColorSlot = InformationLookExtendedArea.AddCloneCell(referenceSlot, "Clothes Color");
-
-        #region Label
-        var labelRs = clothColorSlot!.GetComponentInChildren<ReferenceString>(true);
-        labelRs.Value = Strings.Slot_ClothesColor;
-        LabelRsList.Add(labelRs);
-        #endregion
-
-        #region Value
-        GameObject obj = null!;
-        BinderTextMeshPro binderText = null!;
-        BinderTextMeshProText binderTextText = null!;
-        foreach (var mb in clothColorSlot.GetComponentsInChildren<MonoBehaviour>(true))
-        {
-            if (mb is ReferenceCharacterLook reference)
-            {
-                obj = reference.gameObject;
-                binderText = obj.GetComponent<BinderTextMeshPro>();
-                binderTextText = obj.GetComponent<BinderTextMeshProText>();
-                Object.DestroyImmediate(mb);
-            }
-        }
-
-        if (obj != null)
-        {
-            var referenceClothesColor = obj.AddComponent<ReferenceClothes>();
-            referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
-
-            var referenceClothesColorText = obj.AddComponent<ReferenceClothes>();
-            referenceClothesColorText.DataType = ReferenceClothes.EDataType.ColorText;
-
-            if (binderText != null) ComponentTools.SetReferenceArray(binderText, [referenceClothesColor]);
-            if (binderTextText != null) ComponentTools.SetReferenceArray(binderTextText, [referenceClothesColorText]);
-        }
         #endregion
 
         ColorPickerPanel = AddClothesColorPanel(clothColorSlot);

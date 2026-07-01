@@ -1,80 +1,34 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Core;
 using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
-using System.Collections.Generic;
 using SystemExtensionLib.Systems;
+using SystemExtensionLib.Tools;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
 
 public class ClothesTypeSlotUI
 {
-    private static List<ReferenceFormattingText> LabelRfyList { get; set; } = [];
-
     private static bool _isInjected = false;
-
-    public static void OnLanguageChanged()
-    {
-        foreach (var labelRfy in LabelRfyList)
-        {
-            labelRfy.Value = Strings.Slot_ClothesType;
-        }
-    }
 
     public static void InjectSlot()
     {
         if (_isInjected) return;
 
-        var root = GameObject.Find("Window Female Information (Window)");
-        var canvas = root?.transform.Find("Canvas")?.gameObject;
-        canvas!.SetActive(false);
+        var clothTypeSlot = ExtendedInfoSlotSystem.RegisterFemaleExtendedChangeSlot(
+            ModEntry.ModName, "Clothes Type",
+            () => Strings.Slot_ClothesType,
+            (arrowLeft) => OnLeftArrowClick(arrowLeft),
+            (arrowRight) => OnRightArrowClick(arrowRight),
+            out var typeValue);
 
-        var contentRight = canvas.transform.Find("LetterBox/Frame/Window (1)/Content/Upper Right").transform;
-        var referenceSlot = contentRight.Find("Voice").gameObject;
-
-        //var clothTypeSlot = Object.Instantiate(referenceSlot.gameObject, contentRight);
-        //clothTypeSlot.name = "Clothes Type";
-        //clothTypeSlot.transform.SetSiblingIndex(contentRight.Find("Looks").GetSiblingIndex() + 1);
-
-        var clothTypeSlot = InformationLookExtendedArea.AddCloneCell(referenceSlot, "Clothes Type");
-
-        #region Label
-        var labelRfy = clothTypeSlot!.transform.Find("Text").GetComponent<ReferenceFormattingText>();
-        labelRfy.Value = Strings.Slot_ClothesType;
-        LabelRfyList.Add(labelRfy);
-        #endregion
-
-        #region Value
-        var clothBottomText = clothTypeSlot.transform.Find("Bottom/Text");
-
-        BinderTextMeshProText binderTextText = clothBottomText.GetComponent<BinderTextMeshProText>();
-        Object.DestroyImmediate(clothBottomText.GetComponent<ReferenceCharacterLook>());
-        Object.DestroyImmediate(clothBottomText.GetComponent<ReferenceFormattingText>());
-
-        var referenceClothesType = clothBottomText.gameObject.AddComponent<ReferenceClothes>();
+        #region TypeValue
+        BinderTextMeshProText binderText = typeValue!.GetComponent<BinderTextMeshProText>();
+        var referenceClothesType = typeValue.gameObject.AddComponent<ReferenceClothes>();
         referenceClothesType.DataType = ReferenceClothes.EDataType.Type;
-
-        ComponentTools.SetReferenceArray(binderTextText, [referenceClothesType]);
-        #endregion
-
-        #region ChangeArrow
-        var clothBottomArrow = clothTypeSlot.transform.Find("Bottom/Arrow");
-        Object.DestroyImmediate(clothBottomArrow.GetComponent<ReferenceCharacterLook>());
-        Object.DestroyImmediate(clothBottomArrow.GetComponent<UpdaterGameObject>());
-
-        var arrowLeft = clothBottomArrow.transform.Find("Left").gameObject;
-        var arrowRight = clothBottomArrow.transform.Find("Right").gameObject;
-
-        foreach (var arrow in new[] { arrowLeft, arrowRight })
-        {
-            GameObject.DestroyImmediate(arrow.GetComponent<InteractionClickEvent>());
-            GameObject.DestroyImmediate(arrow.GetComponent<InteractionUnit>());
-            ComponentTools.RemoveClickEvent(arrow);
-        }
-        ComponentTools.AddClickEvent(arrowLeft, () => OnLeftArrowClick(arrowLeft));
-        ComponentTools.AddClickEvent(arrowRight, () => OnRightArrowClick(arrowRight));
-
+        ComponentTools.SetReferenceArray(binderText, [referenceClothesType]);
         #endregion
 
         _isInjected = true;
