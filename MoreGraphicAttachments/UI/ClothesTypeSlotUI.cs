@@ -25,10 +25,10 @@ public class ClothesTypeSlotUI
             out var typeValue);
 
         #region TypeValue
-        BinderTextMeshProText binderText = typeValue!.GetComponent<BinderTextMeshProText>();
-        var referenceClothesType = typeValue.gameObject.AddComponent<ReferenceClothes>();
+        var referenceClothesType = typeValue!.gameObject.AddComponent<ReferenceClothes>();
         referenceClothesType.DataType = ReferenceClothes.EDataType.Type;
-        ComponentTools.SetReferenceArray(binderText, [referenceClothesType]);
+        BinderTextMeshProText binderText = typeValue.GetComponent<BinderTextMeshProText>();
+        binderText.SetReferenceArray([referenceClothesType]);
         #endregion
 
         _isInjected = true;

@@ -38,15 +38,15 @@ public class ClothesColorSlotUI
             out var typeValue);
 
         #region TypeValue
-        var binder = typeValue!.GetComponent<BinderTextMeshPro>();
-        var referenceClothesColor = typeValue.AddComponent<ReferenceClothes>();
+        var referenceClothesColor = typeValue!.AddComponent<ReferenceClothes>();
         referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
-        ComponentTools.SetReferenceArray(binder, [referenceClothesColor]);
+        var binder = typeValue.GetComponent<BinderTextMeshPro>();
+        binder.SetReferenceArray([referenceClothesColor]);
 
-        var binderText = typeValue.GetComponent<BinderTextMeshProText>();
         var referenceClothesColorText = typeValue.AddComponent<ReferenceClothes>();
         referenceClothesColorText.DataType = ReferenceClothes.EDataType.ColorText;
-        ComponentTools.SetReferenceArray(binderText, [referenceClothesColorText]);
+        var binderText = typeValue.GetComponent<BinderTextMeshProText>();
+        binderText.SetReferenceArray([referenceClothesColorText]);
 
         #endregion
 
