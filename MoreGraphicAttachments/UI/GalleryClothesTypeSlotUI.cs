@@ -1,8 +1,9 @@
 ﻿using MBMScripts;
+using MoreGraphicAttachments.Core;
 using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
-using System.Collections.Generic;
+using SystemExtensionLib.Systems;
 using SystemExtensionLib.Tools;
 using UnityEngine;
 
@@ -10,60 +11,29 @@ namespace MoreGraphicAttachments.UI;
 
 public static class GalleryClothesTypeSlotUI
 {
-    private static List<ReferenceFormattingText> LabelRfyList { get; set; } = [];
-
     private static bool _isInjected = false;
-
-    public static void OnLanguageChanged()
-    {
-        foreach (var labelRfy in LabelRfyList)
-        {
-            labelRfy.Value = Strings.Slot_ClothesType;
-        }
-    }
 
     public static void InjectSlot()
     {
         if (_isInjected) return;
 
-        var galleyRoot = GameObject.Find("Galley");
-        var slaveLayout = galleyRoot.transform.Find("Canvas/LetterBox/Frame/Slave Customize/Layout");
-        var slaveAppearanceLeft = slaveLayout.Find("Appearance2/Slave");
-        var clothesSlot = slaveAppearanceLeft.Find("Clothes");
+        var clothesTypeSlots = ExtendedGallerySlotSystem.RegisterFemaleGalleryChangeSlot(
+            ModEntry.ModName, "Clothes Type",
+            AppLayout.Left, 
+            () => Strings.Slot_ClothesType,
+            (arrowLeft) => OnLeftArrowClick(arrowLeft),
+            (arrowRight) => OnRightArrowClick(arrowRight),
+            out var typeValue);
 
-        var clothTypeSlot = Object.Instantiate(clothesSlot.gameObject, slaveAppearanceLeft);
-        clothTypeSlot.name = "Clothes Type";
-        clothTypeSlot.transform.SetSiblingIndex(clothesSlot.GetSiblingIndex() + 1);
-
-        #region Label
-        var labelRfy = clothTypeSlot.GetComponentInChildren<ReferenceFormattingText>(true);
-        labelRfy.Value = Strings.Slot_ClothesType;
-        LabelRfyList.Add(labelRfy);
-        #endregion
-
-        #region TypeValue
-        var referenceCustomize = clothTypeSlot.GetComponentInChildren<ReferenceCustomize>(true);
-        var clothTypeText = referenceCustomize.gameObject;
-        Object.DestroyImmediate(referenceCustomize);
-
-        BinderTextMeshProText binderText = clothTypeText.GetComponent<BinderTextMeshProText>();
-        var referenceClothesType = clothTypeText.AddComponent<ReferenceClothes>();
-        referenceClothesType.DataType = ReferenceClothes.EDataType.Type;
-        ComponentTools.SetReferenceArray(binderText, [referenceClothesType]);
-        #endregion
-
-        #region ChangeArrow
-        var arrowLeft = clothTypeSlot.transform.Find("Left").gameObject;
-        var arrowRight = clothTypeSlot.transform.Find("Right").gameObject;
-
-        foreach (var arrow in new[] { arrowLeft, arrowRight })
+        foreach (GameObject gameObject in typeValue.ToArray())
         {
-            ComponentTools.RemoveClickEvent(arrow);
+            ReferenceClothes referenceClothes = gameObject.AddComponent<ReferenceClothes>();
+            referenceClothes.DataType = ReferenceClothes.EDataType.Type;
+            BinderTextMeshProText component = gameObject.GetComponent<BinderTextMeshProText>();
+            component.SetReferenceArray([referenceClothes]);
         }
-        ComponentTools.AddClickEvent(arrowLeft, () => OnLeftArrowClick(arrowLeft));
-        ComponentTools.AddClickEvent(arrowRight, () => OnRightArrowClick(arrowRight));
 
-        #endregion
+        ExtendedGallerySlotSystem.Insert(clothesTypeSlots, InsertPoint.Below, "Clothes");
 
         _isInjected = true;
     }
