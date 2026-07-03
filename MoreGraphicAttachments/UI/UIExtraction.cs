@@ -8,10 +8,8 @@ using UnityEngine.UI;
 
 namespace MoreGraphicAttachments.UI;
 
-public class UIExtraction
+public static class UIExtraction
 {
-    public static GameObject? FemaleInformationCanvas { get; set; }
-
     // After GalleryClothesColorSlotUI
     public static GameObject? ClothesColorPicker { get; set; }
 

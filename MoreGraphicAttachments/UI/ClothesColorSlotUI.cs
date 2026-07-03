@@ -3,30 +3,19 @@ using MoreGraphicAttachments.Core;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.UIComponents;
-using System.Collections.Generic;
 using SystemExtensionLib.Systems;
 using SystemExtensionLib.Tools;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
 
-public class ClothesColorSlotUI
+public static class ClothesColorSlotUI
 {
-    private static List<ReferenceFormattingText> LabelRftList { get; set; } = [];
-
     private static GameObject ColorPickerPanel { get; set; } = null!;
 
     private static bool _isInjected = false;
 
     private static bool _isGlobalEventRegistered = false;
-
-    public static void OnLanguageChanged()
-    {
-        foreach (var labelRs in LabelRftList)
-        {
-            labelRs.Value = Strings.Slot_ClothesColor;
-        }
-    }
 
     public static void InjectSlot()
     {
@@ -38,15 +27,16 @@ public class ClothesColorSlotUI
             out var typeValue);
 
         #region TypeValue
-        var binder = typeValue!.GetComponent<BinderTextMeshPro>();
-        var referenceClothesColor = typeValue.AddComponent<ReferenceClothes>();
+        var referenceClothesColor = typeValue!.AddComponent<ReferenceClothes>();
         referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
-        ComponentTools.SetReferenceArray(binder, [referenceClothesColor]);
 
-        var binderText = typeValue.GetComponent<BinderTextMeshProText>();
+        var binder = typeValue.GetComponent<BinderTextMeshPro>();
+        binder.SetReferenceArray([referenceClothesColor]);
+
         var referenceClothesColorText = typeValue.AddComponent<ReferenceClothes>();
         referenceClothesColorText.DataType = ReferenceClothes.EDataType.ColorText;
-        ComponentTools.SetReferenceArray(binderText, [referenceClothesColorText]);
+        var binderText = typeValue.GetComponent<BinderTextMeshProText>();
+        binderText.SetReferenceArray([referenceClothesColorText]);
 
         #endregion
 
@@ -80,8 +70,8 @@ public class ClothesColorSlotUI
         var tmp = label.GetComponentInChildren<TMPro.TextMeshProUGUI>(true);
         tmp.fontSizeMax = 24f;
         tmp.enableAutoSizing = true;
-        labelRft.Value = Strings.Slot_ClothesColor;
-        LabelRftList.Add(labelRft);
+        //labelRft.Value = Strings.Slot_ClothesColor;
+        //LabelRftList.Add(labelRft);
 
         var exitIcon = colorpanel.transform.Find("Exit Button").gameObject;
         ComponentTools.AddClickEvent(exitIcon, () => colorpanel.SetActive(false));

@@ -5,7 +5,7 @@ using System;
 namespace MoreGraphicAttachments.Patches.InitializePatches;
 
 [HarmonyPatch(typeof(SeqObjectPoolManager), nameof(SeqObjectPoolManager.Initialize))]
-public class SeqObjectPoolManagerPatch
+public static class SeqObjectPoolManagerPatch
 {
     public static event Action? AfterGameInitialized;
 

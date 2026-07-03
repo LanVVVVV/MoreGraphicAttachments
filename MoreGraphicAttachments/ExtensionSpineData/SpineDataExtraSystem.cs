@@ -13,7 +13,7 @@ namespace MoreGraphicAttachments.ExtensionSpineData;
 public static class SpineDataExtraSystem
 {
     private static readonly ConditionalWeakTable<SpineData, SpineDataExtra> ExtraTable
-        = new ConditionalWeakTable<SpineData, SpineDataExtra>();
+        = new();
 
     public static SpineDataExtra Extra(this SpineData spineData)
     {

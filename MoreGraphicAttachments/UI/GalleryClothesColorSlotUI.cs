@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace MoreGraphicAttachments.UI;
 
-public class GalleryClothesColorSlotUI
+public static class GalleryClothesColorSlotUI
 {
     private static List<ReferenceFormattingText> LabelRfyList { get; set; } = [];
 

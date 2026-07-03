@@ -4,7 +4,7 @@ using MBMScripts;
 namespace MoreGraphicAttachments.Patches.ComponentPatches;
 
 [HarmonyPatch(typeof(ReferenceCharacterLook))]
-public class ReferenceCharacterLookPatch
+public static class ReferenceCharacterLookPatch
 {
     private const int ClothesEDataType = 72;
 

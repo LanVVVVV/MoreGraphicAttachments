@@ -8,7 +8,7 @@ using MoreGraphicAttachments.ExtensionField;
 namespace MoreGraphicAttachments.Patches.UnitPatches;
 
 [HarmonyPatch(typeof(Female))]
-public class FemalePatch
+public static class FemalePatch
 {
     [HarmonyPatch(nameof(Female.InitializeAppearance))]
     [HarmonyPostfix]

@@ -4,7 +4,7 @@ using MBMScripts;
 namespace MoreGraphicAttachments.Patches.ComponentPatches;
 
 [HarmonyPatch(typeof(ReferenceCustomize))]
-public class ReferenceCustomizePatch
+public static class ReferenceCustomizePatch
 {
     private const int ClothesEDataType = 7;
 

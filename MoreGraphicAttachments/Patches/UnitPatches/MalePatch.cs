@@ -6,7 +6,7 @@ using MoreGraphicAttachments.ExtensionData.Data;
 namespace MoreGraphicAttachments.Patches.UnitPatches;
 
 [HarmonyPatch(typeof(Male))]
-public class MalePatch
+public static class MalePatch
 {
     [HarmonyPatch(nameof(Male.InitializeAppearance))]
     [HarmonyPostfix]

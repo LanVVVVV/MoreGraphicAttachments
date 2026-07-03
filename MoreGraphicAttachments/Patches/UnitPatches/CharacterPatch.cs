@@ -5,7 +5,7 @@ using MoreGraphicAttachments.Features;
 namespace MoreGraphicAttachments.Patches.UnitPatches;
 
 [HarmonyPatch(typeof(Character))]
-public class CharacterPatch
+public static class CharacterPatch
 {
     [HarmonyPatch(nameof(Character.ClothesType), MethodType.Getter)]
     [HarmonyPrefix]
