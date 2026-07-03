@@ -1,40 +1,49 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using MBMScripts;
 using MoreGraphicAttachments.ExtensionField;
-using MBMScripts;
+using System.Collections;
+using UnityEngine;
 
-namespace MoreGraphicAttachments.UIComponents;
-
-public class InteractionClothesColor : MonoBehaviour
+namespace MoreGraphicAttachments.UIComponents
 {
-    private void OnEnable()
+    public class InteractionClothesColor : MonoBehaviour
     {
-        StartCoroutine(this.OnTrick());
+        private FlexibleColorPicker m_FlexibleColorPicker = null!;
+        private bool m_IsChangeable;
+
+        private void Awake()
+        {
+            m_FlexibleColorPicker = GetComponent<FlexibleColorPicker>();
+        }
+
+        private void OnEnable()
+        {
+            StartCoroutine(EnableChangeAfterFrame());
+
+            if (GetComponentInParent<TargetUnit>()?.Unit is Character character)
+            {
+                m_FlexibleColorPicker.color = character.Extra().ClothesColor;
+            }
+        }
+
+        private void OnDisable()
+        {
+            m_IsChangeable = false;
+        }
+
+        private IEnumerator EnableChangeAfterFrame()
+        {
+            yield return null;
+            m_IsChangeable = true;
+        }
+
+        public void ChangeClothesColor(Color color)
+        {
+            if (!m_IsChangeable) return;
+
+            if (GetComponentInParent<TargetUnit>()?.Unit is Character character)
+            {
+                character.Extra().ClothesColor = color;
+            }
+        }
     }
-
-    private void OnDisable()
-    {
-        m_IsChangeable = false;
-    }
-
-    private IEnumerator OnTrick()
-    {
-        yield return null;
-        m_IsChangeable = true;
-        yield break;
-    }
-
-    public void ChangeClothesColor(Color color)
-    {
-        if (!m_IsChangeable) return;
-
-        TargetUnit componentInParent = base.GetComponentInParent<TargetUnit>();
-        if (componentInParent == null) return;
-        Character? character = componentInParent.Unit as Character;
-        if (character == null) return;
-
-        character.Extra().ClothesColor = color;
-    }
-
-    private bool m_IsChangeable;
 }

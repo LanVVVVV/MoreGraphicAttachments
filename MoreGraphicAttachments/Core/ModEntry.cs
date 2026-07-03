@@ -45,7 +45,6 @@ public static class ModEntry
         Strings.Culture = Localization.CurrentCulture;
 
         ModConfig.OnLanguageChanged();
-        GalleryClothesColorSlotUI.OnLanguageChanged();
 
         Log($"language changed: {langCode}");
     }
