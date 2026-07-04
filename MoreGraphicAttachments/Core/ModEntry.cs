@@ -1,5 +1,6 @@
 ﻿using MBM.ModLoader.Core;
 using MBM.ModLoader.Settings;
+using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
 using MoreGraphicAttachments.Sprites;
@@ -21,8 +22,11 @@ public static class ModEntry
 
         ModConfig.ModSettingRegister();
 
+        Loader.OnAllModsLoaded += ModCompatibility.ModCompatibilityCheck;
+
         SeqObjectPoolManagerPatch.AfterGameInitialized += UIRegister.Initialize;
 
+        GameManagerPatch.AfterDataInitialized += GlobalCharacterData.Initialize;
         GameManagerPatch.AfterDataInitialized += LoadData.Initialize;
         SpineDataPatch.AfterSpineDataInitialized += LoadSpineData.Initialize;
 

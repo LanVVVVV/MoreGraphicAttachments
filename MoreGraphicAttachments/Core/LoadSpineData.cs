@@ -13,9 +13,8 @@ public static class LoadSpineData
 
         string[] jsonNames;
 
-        if (Loader.IsModLoaded("TitsMod"))
+        if (ModCompatibility.IsTitsModLoaded)
         {
-            ModEntry.Log("Detected: TitsMod enabled.");
             jsonNames = ["TitsModSpineDataWoman", "TitsModSpineDataGirl"];
         }
         else
