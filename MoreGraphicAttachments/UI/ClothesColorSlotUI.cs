@@ -2,9 +2,12 @@
 using MoreGraphicAttachments.Core;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
+using MoreGraphicAttachments.Sprites;
 using MoreGraphicAttachments.UIComponents;
 using SystemExtensionLib.Systems;
 using SystemExtensionLib.Tools;
+using SystemExtensionLib.Utils;
+using TMPro;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.UI;
@@ -35,9 +38,9 @@ public static class ClothesColorSlotUI
 
         var referenceClothesColorText = typeValue.AddComponent<ReferenceClothes>();
         referenceClothesColorText.DataType = ReferenceClothes.EDataType.ColorText;
+
         var binderText = typeValue.GetComponent<BinderTextMeshProText>();
         binderText.SetReferenceArray([referenceClothesColorText]);
-
         #endregion
 
         ColorPickerPanel = AddClothesColorPanel(clothColorSlot);
@@ -55,60 +58,61 @@ public static class ClothesColorSlotUI
 
     private static GameObject AddClothesColorPanel(GameObject clothColorSlot)
     {
-        var colorpanel = Object.Instantiate(UIExtraction.Panel, clothColorSlot.transform);
-        colorpanel!.name = "ClothesColorPanel";
+        var colorpanel = UIExtraction.ExtractionPanelWindow(
+            out GameObject body,
+            out TextMeshProUGUI tmp,
+            out ReferenceFormattingText labelRft,
+            out GameObject exitIcon);
+        colorpanel.transform.SetParent(clothColorSlot.transform, false);
+        colorpanel.name = "ClothesColorPanel";
 
         var panelRT = colorpanel.GetComponent<RectTransform>();
+        panelRT.pivot = new Vector2(1, 0.5f);
         panelRT.anchorMin = new Vector2(0, 1);
         panelRT.anchorMax = new Vector2(0, 1);
-        panelRT.pivot = new Vector2(1, 0.5f);
         panelRT.anchoredPosition = new Vector2(-13, 0);
         panelRT.sizeDelta = new Vector2(300, 250);
 
-        var label = colorpanel.transform.Find("Label").gameObject;
-        var labelRft = label.GetComponentInChildren<ReferenceFormattingText>(true);
-        var tmp = label.GetComponentInChildren<TMPro.TextMeshProUGUI>(true);
-        tmp.fontSizeMax = 24f;
-        tmp.enableAutoSizing = true;
-        //labelRft.Value = Strings.Slot_ClothesColor;
-        //LabelRftList.Add(labelRft);
+        AddClothesColorPicker(body);
 
-        var exitIcon = colorpanel.transform.Find("Exit Button").gameObject;
+        labelRft.SetLabel(() => Strings.Slot_ClothesColor);
+
         ComponentTools.AddClickEvent(exitIcon, () => colorpanel.SetActive(false));
-
-        // === ColorPicker ===
-        var body = colorpanel.transform.Find("Body");
-
-        var colorPicker = Object.Instantiate(UIExtraction.ClothesColorPicker, body);
-        colorPicker!.name = "ClothesColorPickerInstance";
-
-        var flexibleColorPicker = colorPicker.GetComponent<FlexibleColorPicker>();
-        var interaction = colorPicker.GetComponent<InteractionClothesColor>();
-        flexibleColorPicker.onColorChange.RemoveAllListeners();
-        flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
-
-        colorPicker.SetActive(true);
 
         return colorpanel;
     }
 
+    private static void AddClothesColorPicker(GameObject body)
+    {
+        var colorPicker = GalleryExtraction.OnlyColorPicker(out var flexibleColorPicker);
+        colorPicker.transform.SetParent(body.transform, false);
+        colorPicker.name = "ClothesColorPicker";
+
+        var referenceClothesColor = colorPicker.AddComponent<ReferenceClothes>();
+        referenceClothesColor.DataType = ReferenceClothes.EDataType.Color;
+        var updaterColorPicker = colorPicker.AddComponent<UpdaterColorPicker>();
+        updaterColorPicker.SetReferenceArray([referenceClothesColor]);
+
+        var interaction = colorPicker.AddComponent<InteractionClothesColor>();
+        flexibleColorPicker.onColorChange.AddListener(interaction.ChangeClothesColor);
+
+        colorPicker.SetActive(true);
+    }
+
     private static GameObject AddClothesColorButton(GameObject clothColorSlot, GameObject targetPanel)
     {
-        var colorModifyButton = Object.Instantiate(UIExtraction.ColorModifyButton, clothColorSlot.transform);
+        var colorModifyButton = UIExtraction.ExtractionButton(out var image);
+        colorModifyButton.transform.SetParent(clothColorSlot.transform, false);
         colorModifyButton!.name = "ColorModifyButton";
 
-        colorModifyButton.transform.SetParent(clothColorSlot.transform, false);
-
         var rt = colorModifyButton.GetComponent<RectTransform>();
-        rt.anchorMin = new Vector2(0.5f, 0.5f);
-        rt.anchorMax = new Vector2(0.5f, 0.5f);
-        rt.pivot = new Vector2(0.5f, 0.5f);
-        rt.sizeDelta = new Vector2(28, 28);
         rt.anchoredPosition = new Vector2(60, -10);
+
+        image.sprite = UISpriteLoad.SpriteButtonColorModify;
+
         ComponentTools.AddClickEvent(colorModifyButton, () => targetPanel.SetActive(!targetPanel.activeSelf));
 
         colorModifyButton.SetActive(true);
-
         return colorModifyButton;
     }
 

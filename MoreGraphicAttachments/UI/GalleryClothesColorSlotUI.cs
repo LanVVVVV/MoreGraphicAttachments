@@ -24,11 +24,6 @@ public static class GalleryClothesColorSlotUI
         {
             var interaction = clothesColorSlotObj.AddComponent<InteractionClothesColor>();
             ColorPickerObj.onColorChange.AddListener(interaction.ChangeClothesColor);
-
-            if (UIExtraction.ClothesColorPicker == null)
-            {
-                UIExtraction.ClothesColorPicker = clothesColorSlotObj;
-            }
         }
 
         ExtendedGallerySlotSystem.Insert(clothesColorSlots, InsertPoint.First);

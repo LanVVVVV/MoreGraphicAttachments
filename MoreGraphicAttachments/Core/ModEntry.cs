@@ -21,7 +21,7 @@ public static class ModEntry
 
         ModConfig.ModSettingRegister();
 
-        SeqObjectPoolManagerPatch.AfterGameInitialized += UIExtraction.Initialize;
+        SeqObjectPoolManagerPatch.AfterGameInitialized += UIRegister.Initialize;
 
         GameManagerPatch.AfterDataInitialized += LoadData.Initialize;
         SpineDataPatch.AfterSpineDataInitialized += LoadSpineData.Initialize;
