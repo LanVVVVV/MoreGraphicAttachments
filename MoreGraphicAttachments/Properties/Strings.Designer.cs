@@ -131,5 +131,14 @@ namespace MoreGraphicAttachments.Properties {
                 return ResourceManager.GetString("Slot_ClothesType", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Hair Bundle Type 的本地化字符串。
+        /// </summary>
+        internal static string Slot_HairBundleType {
+            get {
+                return ResourceManager.GetString("Slot_HairBundleType", resourceCulture);
+            }
+        }
     }
 }

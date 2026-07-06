@@ -141,4 +141,7 @@
   <data name="Slot_ClothesType" xml:space="preserve">
     <value>衣服类型</value>
   </data>
+  <data name="Slot_HairBundleType" xml:space="preserve">
+    <value>束发类型</value>
+  </data>
 </root>

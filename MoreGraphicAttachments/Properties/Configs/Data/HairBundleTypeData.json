@@ -1,0 +1,44 @@
+{
+  "list": [
+    {
+      "m_CharacterClass": "MBMScripts.Human",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Elf",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Dwarf",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Neko",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Inu",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Usagi",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Hitsuji",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    },
+    {
+      "m_CharacterClass": "MBMScripts.Dragonian",
+      "m_HairBundleTypeList": [ 0 ],
+      "m_HairBundleTypeChanceList": [ 1 ]
+    }
+  ]
+}

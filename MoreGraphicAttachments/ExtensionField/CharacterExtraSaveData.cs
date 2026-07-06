@@ -11,6 +11,8 @@ public class CharacterExtraSaveData
 {
     public int UnitId;
     public string ClothesColorHex = null!;
+    public int HairBundleType = 0;
+
 
     [JsonConstructor]
     public CharacterExtraSaveData(){ }
@@ -18,8 +20,10 @@ public class CharacterExtraSaveData
     public CharacterExtraSaveData(Character character, CharacterExtra extra)
     {
         UnitId = character.UnitId;
-        if(!extra.ClothesColorNotNeedSave())
+        if(extra.ClothesColorNeedSave())
             ClothesColorHex = "#" + ColorUtility.ToHtmlStringRGBA(extra.ClothesColor);
+        if (extra.HairBundleTypeNeedSave())
+            HairBundleType = extra.HairBundleType;
     }
 }
 

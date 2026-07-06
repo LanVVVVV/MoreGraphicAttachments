@@ -13,7 +13,7 @@ public static class ExtensionFieldSaveData
         var list = new CharacterExtraSaveDataWrapper();
         foreach (var (character, extra) in CharacterExtraSystem.EnumerateValid())
         {
-            if (extra.NotNeedSave())continue;
+            if (!extra.NeedSave())continue;
             list.Characters.Add(new CharacterExtraSaveData(character, extra));
         }
         string json = JsonConvert.SerializeObject(list, Formatting.None,

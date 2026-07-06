@@ -10,7 +10,9 @@ public static class LoadData
         CharacterExtensionDataMap<ToothTypeData>.Init();
         CharacterExtensionDataMap<ClothesColorData>.Init();
         CharacterExtensionDataMap<ClothesTypeData>.Init();
+        CharacterExtensionDataMap<HairBundleTypeData>.Init();
 
         ClothesTypeData.BuildGlobalClothesTypeList();
+        HairBundleTypeData.BuildGlobalHairBundleTypeList();
     }
 }

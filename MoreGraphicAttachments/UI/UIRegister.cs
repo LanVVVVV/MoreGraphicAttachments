@@ -11,6 +11,8 @@ internal static class UIRegister
     {
         GalleryClothesColorSlotUI.InjectSlot();
         GalleryClothesTypeSlotUI.InjectSlot();
+        GalleryHairBundleTypeSlotUI.InjectSlot();
+
 
         ClothesColorSlotUI.InjectSlot();
         
@@ -18,5 +20,7 @@ internal static class UIRegister
         ExtendedInfoSlotSystem.RegisterFemaleExtendedSlotVisibilityCondition(
             ModEntry.ModName, "Clothes Type",
             (character) => CharacterExtensionDataMap<ClothesTypeData>.Get(character).ClothesTypeList.Length > 1);
+
+        HairBundleTypeSlotUI.InjectSlot();
     }
 }

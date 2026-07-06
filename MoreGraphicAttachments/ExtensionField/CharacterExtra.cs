@@ -1,16 +1,16 @@
 ﻿using MBMScripts;
 using MoreGraphicAttachments.ExtensionData.Data;
-using System;
 using UnityEngine;
 
 namespace MoreGraphicAttachments.ExtensionField;
 
-[Serializable]
 public class CharacterExtra
 {
     private readonly Character m_Character;
 
     private Color m_ClothesColor = ClothesColorData.BaseColor;
+
+    private int m_HairBundleType = 0;
 
     public Color ClothesColor
     {
@@ -30,6 +30,24 @@ public class CharacterExtra
         }
     }
 
+    public int HairBundleType
+    {
+        get
+        {
+            SeqDataBinding.Instance.RegisterFlag(m_Character);
+            return m_HairBundleType;
+        }
+        set
+        {
+            if (!(m_HairBundleType == value))
+            {
+                SeqDataBinding.Instance.DirtyFlag(m_Character);
+                m_HairBundleType = value;
+                Unit.RemovePartData(m_Character);
+            }
+        }
+    }
+
     public CharacterExtra(Character character)
     {
         m_Character = character;
@@ -39,7 +57,8 @@ public class CharacterExtra
     {
         m_Character = character;
 
-        if (ColorUtility.TryParseHtmlString(data.ClothesColorHex, out var col))
+        if (!string.IsNullOrEmpty(data.ClothesColorHex) &&
+            ColorUtility.TryParseHtmlString(data.ClothesColorHex, out var col))
         {
             m_ClothesColor = col;
         }
@@ -47,15 +66,22 @@ public class CharacterExtra
         {
             m_ClothesColor = ClothesColorData.BaseColor;
         }
+
+        HairBundleType = data.HairBundleType;
     }
 
-    public bool NotNeedSave()
+    public bool NeedSave()
     {
-        return ClothesColorNotNeedSave();
+        return ClothesColorNeedSave() || HairBundleTypeNeedSave();
     }
 
-    public bool ClothesColorNotNeedSave()
+    public bool ClothesColorNeedSave()
     {
-        return ClothesColor == ClothesColorData.BaseColor;
+        return ClothesColor != ClothesColorData.BaseColor;
+    }
+
+    public bool HairBundleTypeNeedSave()
+    {
+        return HairBundleType != 0;
     }
 }

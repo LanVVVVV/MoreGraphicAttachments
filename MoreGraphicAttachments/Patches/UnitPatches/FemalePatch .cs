@@ -16,6 +16,7 @@ public static class FemalePatch
     {
         __instance.Extra().ClothesColor = CharacterExtensionDataMap<ClothesColorData>.Get(__instance).GetInitialClothesColor(0);
         //ModEntry.Log($"{__instance.GetType().Name} {"#" + ColorUtility.ToHtmlStringRGBA(__instance.Extra().ClothesColor)}");
+        __instance.Extra().HairBundleType = CharacterExtensionDataMap<HairBundleTypeData>.Get(__instance).GetInitialHairBundleType(0);
     }
 
     [HarmonyPatch("Initialize", [typeof(Character), typeof(Character)])]
@@ -24,5 +25,6 @@ public static class FemalePatch
     {
         if (!ModConfig.EnableClothesColorInherit) return;
         __instance.Extra().ClothesColor = female.Extra().ClothesColor;
+        __instance.Extra().HairBundleType = female.Extra().HairBundleType;
     }
 }

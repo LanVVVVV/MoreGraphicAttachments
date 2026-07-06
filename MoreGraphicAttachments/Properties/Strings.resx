@@ -121,4 +121,7 @@
   <data name="Slot_ClothesType" xml:space="preserve">
     <value>Clothes Type</value>
   </data>
+  <data name="Slot_HairBundleType" xml:space="preserve">
+    <value>Hair Bundle Type</value>
+  </data>
 </root>
