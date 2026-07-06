@@ -8,9 +8,9 @@ namespace MoreGraphicAttachments.ExtensionField;
 [Serializable]
 public class CharacterExtra
 {
-    public Character m_Character;
+    private readonly Character m_Character;
 
-    public Color m_ClothesColor = ClothesColorData.BaseColor;
+    private Color m_ClothesColor = ClothesColorData.BaseColor;
 
     public Color ClothesColor
     {
@@ -54,7 +54,7 @@ public class CharacterExtra
         return ClothesColorNotNeedSave();
     }
 
-    private bool ClothesColorNotNeedSave()
+    public bool ClothesColorNotNeedSave()
     {
         return ClothesColor == ClothesColorData.BaseColor;
     }

@@ -16,7 +16,12 @@ public static class ExtensionFieldSaveData
             if (extra.NotNeedSave())continue;
             list.Characters.Add(new CharacterExtraSaveData(character, extra));
         }
-        string json = JsonConvert.SerializeObject(list, Formatting.None);
+        string json = JsonConvert.SerializeObject(list, Formatting.None,
+            new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                DefaultValueHandling = DefaultValueHandling.Ignore
+            }); 
         ModSaveData.SetString(ModEntry.ModName, "CharacterExtraList", json);
     }
 

@@ -19,9 +19,6 @@ public class ClothesTypeData : ExtensionCharacterData
 
     public int GetInitialClothesType(int defaultIndex)
     {
-        if (m_ClothesTypeList == null || m_ClothesTypeList.Length == 0)
-            return 0;
-
         if (m_ClothesTypeChanceList == null)
             return m_ClothesTypeList[Mathf.Clamp(defaultIndex, 0, m_ClothesTypeList.Length - 1)];
 

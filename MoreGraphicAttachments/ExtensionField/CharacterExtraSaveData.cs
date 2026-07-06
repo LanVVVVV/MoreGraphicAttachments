@@ -18,7 +18,8 @@ public class CharacterExtraSaveData
     public CharacterExtraSaveData(Character character, CharacterExtra extra)
     {
         UnitId = character.UnitId;
-        ClothesColorHex = "#" + ColorUtility.ToHtmlStringRGBA(extra.m_ClothesColor);
+        if(!extra.ClothesColorNotNeedSave())
+            ClothesColorHex = "#" + ColorUtility.ToHtmlStringRGBA(extra.ClothesColor);
     }
 }
 

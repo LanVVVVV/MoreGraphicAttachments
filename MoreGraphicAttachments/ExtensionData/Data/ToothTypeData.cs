@@ -9,7 +9,7 @@ public class ToothTypeData : ExtensionCharacterData
 {
     public string m_CharacterClass = null!;
 
-    public int[] m_ToothTypeList = null!;
+    public int[] m_ToothTypeList = [0];
 
     public float[] m_ToothTypeChanceList = null!;
 

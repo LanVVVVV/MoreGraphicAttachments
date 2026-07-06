@@ -9,7 +9,7 @@ public class NoseTypeData : ExtensionCharacterData
 {
     public string m_CharacterClass = null!;
 
-    public int[] m_NoseTypeList = null!;
+    public int[] m_NoseTypeList = [0];
 
     public float[] m_NoseTypeChanceList = null!;
 
