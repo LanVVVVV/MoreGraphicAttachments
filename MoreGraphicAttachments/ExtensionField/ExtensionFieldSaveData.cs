@@ -1,10 +1,10 @@
 ﻿using MBM.ModLoader.Settings;
 using MBMScripts;
-using MoreGraphicAttachments.ExtensionField;
+using MoreGraphicAttachments.Core;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace MoreGraphicAttachments.Core;
+namespace MoreGraphicAttachments.ExtensionField;
 
 public static class ExtensionFieldSaveData
 {
@@ -16,7 +16,6 @@ public static class ExtensionFieldSaveData
             if (extra.NotNeedSave())continue;
             list.Characters.Add(new CharacterExtraSaveData(character, extra));
         }
-
         string json = JsonConvert.SerializeObject(list, Formatting.None);
         ModSaveData.SetString(ModEntry.ModName, "CharacterExtraList", json);
     }

@@ -1,5 +1,8 @@
 ﻿using MBM.ModLoader.Core;
 using MBM.ModLoader.Settings;
+using MoreGraphicAttachments.ExtensionData;
+using MoreGraphicAttachments.ExtensionField;
+using MoreGraphicAttachments.ExtensionSpineData;
 using MoreGraphicAttachments.Features;
 using MoreGraphicAttachments.Patches.InitializePatches;
 using MoreGraphicAttachments.Properties;
