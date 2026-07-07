@@ -18,7 +18,7 @@ public static class GalleryHairBundleTypeSlotUI
         if (_isInjected) return;
 
         var HairBundleTypeSlots = ExtendedGallerySlotSystem.RegisterFemaleGalleryChangeSlot(
-            ModEntry.ModName, "HairBundle Type",
+            ModEntry.ModName, "Hair Bundle",
             AppLayout.Right, 
             () => Strings.Slot_HairBundleType,
             (arrowLeft) => OnLeftArrowClick(arrowLeft),
@@ -32,7 +32,7 @@ public static class GalleryHairBundleTypeSlotUI
             component.SetReferenceArray([referenceHairBundleType]);
         }
 
-        ExtendedGallerySlotSystem.Insert(HairBundleTypeSlots, InsertPoint.Last);
+        ExtendedGallerySlotSystem.Insert(HairBundleTypeSlots, InsertPoint.Below, "Back Hair");
 
         _isInjected = true;
     }

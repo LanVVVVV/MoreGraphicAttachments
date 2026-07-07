@@ -4,7 +4,7 @@
     <TargetFramework>net481</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>1.4.0.0</Version>
+    <Version>1.4.0.1</Version>
     <Authors>LanFengVVV</Authors>
     <Company>LanFengVVV </Company>
     <Description>MBM.ModLoader mod for Monster Black Market — Adding additional Spine Attachments graphics for character units.</Description>

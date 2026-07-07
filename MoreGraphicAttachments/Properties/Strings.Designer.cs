@@ -152,7 +152,7 @@ namespace MoreGraphicAttachments.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Hair Bundle Type 的本地化字符串。
+        ///   查找类似 Hair Bundle 的本地化字符串。
         /// </summary>
         internal static string Slot_HairBundleType {
             get {

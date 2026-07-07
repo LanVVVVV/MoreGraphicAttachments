@@ -122,7 +122,7 @@
     <value>Clothes Type</value>
   </data>
   <data name="Slot_HairBundleType" xml:space="preserve">
-    <value>Hair Bundle Type</value>
+    <value>Hair Bundle</value>
   </data>
   <data name="Description_Mod" xml:space="preserve">
     <value>MBM.ModLoader mod for Monster Black Market — Adds additional Spine attachment graphics for character units.

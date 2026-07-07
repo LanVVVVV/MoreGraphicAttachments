@@ -142,7 +142,7 @@
     <value>衣服类型</value>
   </data>
   <data name="Slot_HairBundleType" xml:space="preserve">
-    <value>束发类型</value>
+    <value>束发</value>
   </data>
   <data name="Description_Mod" xml:space="preserve">
     <value>适用于 Monster Black Market 的 MBM.ModLoader 模组 —— 为角色添加更多 Spine 附件图形。
