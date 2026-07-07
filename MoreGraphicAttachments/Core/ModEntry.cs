@@ -1,5 +1,6 @@
 ﻿using MBM.ModLoader.Core;
 using MBM.ModLoader.Settings;
+using MBM.ModLoader.API;
 using MoreGraphicAttachments.ExtensionData;
 using MoreGraphicAttachments.ExtensionField;
 using MoreGraphicAttachments.ExtensionSpineData;
@@ -51,6 +52,7 @@ public static class ModEntry
     {
         Strings.Culture = Localization.CurrentCulture;
 
+        ModLoaderAPI.SetDescription(ModName, Strings.Description_Mod);
         ModConfig.OnLanguageChanged();
 
         Log($"language changed: {langCode}");

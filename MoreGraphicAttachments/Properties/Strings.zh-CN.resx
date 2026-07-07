@@ -144,4 +144,17 @@
   <data name="Slot_HairBundleType" xml:space="preserve">
     <value>束发类型</value>
   </data>
+  <data name="Description_Mod" xml:space="preserve">
+    <value>适用于 Monster Black Market 的 MBM.ModLoader 模组 —— 为角色添加更多 Spine 附件图形。
+
+功能：
+	1.添加彩色服装系统并允许自定义颜色
+	2.将信息槽中的类型显示从字母改为数字；
+	3.允许在图库中切换所有附件类型。
+
+额外功能（需要其他图形mod）：
+	1.扩展原版的服装类型；
+	2.为怪物的牙齿和鼻子添加初始化器；
+	3.添加新的头发组合类型：束发。</value>
+  </data>
 </root>

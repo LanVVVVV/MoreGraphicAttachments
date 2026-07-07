@@ -88,6 +88,25 @@ namespace MoreGraphicAttachments.Properties {
         }
         
         /// <summary>
+        ///   查找类似 MBM.ModLoader mod for Monster Black Market — Adds additional Spine attachment graphics for character units.
+        ///
+        ///Features:
+        ///	1.Adds a colored‑clothes system and allows custom clothing colors;
+        ///	2.Change type indicators in the info slots from letters to numbers;
+        ///	3.Enable switching between all attachment types in the gallery.
+        ///
+        ///Additional features (requires other graphics mods):
+        ///	1.Extend the game&apos;s vanilla clothes types;
+        ///	2.Add initializers for monster teeth and noses;
+        ///	3.Introduce a new hair‑style combi [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string Description_Mod {
+            get {
+                return ResourceManager.GetString("Description_Mod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Always Colored 的本地化字符串。
         /// </summary>
         internal static string Label_AlwaysColored {
